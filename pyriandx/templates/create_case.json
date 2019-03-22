@@ -1,0 +1,44 @@
+{
+    "disease": {
+        "code": "{{disease_code}}",
+        "label": "{{disease_label}}"
+    },
+    "specimens": [
+        {
+            "firstName": "{{first_name}}",
+            "lastName": "{{last_name}}",
+            "dateReceived": "{{date_received}}",
+            "datecollected": "{{date_collected}}",
+            "name": "{{specimen_name}}",
+            "dateAccessioned": "{{date_accessioned}}",
+            "dateOfBirth": "{{date_of_birth}}",
+            "type": {
+                "code": "{{specimen_type_code}}",
+                "label": "{{specimen_type_label}}"
+            },
+            "accessionNumber": "{{accession_number}}",
+            "medicalRecordNumbers": [
+                {
+                    "medicalFacility": {
+                        "hospitalNumber": "{{hospital_number}}",
+                        "facility": "{{hospital_facility}}"
+                    },
+                    "mrn": "{{mrn}}"
+                }
+            ]
+        }
+    ],
+    "sampleType": "patientcare",
+    "panelName": "{{panel_name}}",
+    "canceled": false,
+    "physicians": [
+        {
+            "firstName": "{{physician_first_name}}",
+            "lastName": "{{physician_last_name}}"
+        }
+    ],
+    "identified": true,
+    "dateCreated": "{{date_created}}",
+    "inheritancePattern": "none",
+    "indication": "none"
+}

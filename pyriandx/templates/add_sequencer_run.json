@@ -1,0 +1,11 @@
+{  
+    "runId":"{{sequence_run_id}}",
+    "type":"pairedEnd",
+    "specimens":[  
+       {  
+          "accessionNumber":"{{accession_number}}",
+          "lane":"1",
+          "barcode":"AAACAT"
+       }
+    ]
+ }

@@ -1,0 +1,14 @@
+{
+    "input": [
+                {
+                    "accessionNumber": "{{accession_number}}",
+                    "sequencerRunInfos": [
+                        {
+                          "barcode": "{{sequence_barcode}}",
+                          "lane": "{{sequence_lane}}",
+                          "runId": "{{sequence_run_id}}"
+                        }
+                    ]
+                }
+            ]
+}
