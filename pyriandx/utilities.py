@@ -6,7 +6,7 @@ import httplib as http_client
 
 
 def requests_retry_session(headers,retries=4,backoff_factor=1,status_forcelist=(500, 502, 504),session=None):
-        http_client.HTTPConnection.debuglevel = 5
+        # http_client.HTTPConnection.debuglevel = 5
         session = session or requests.Session()
         retry = Retry(
                 total=retries,
