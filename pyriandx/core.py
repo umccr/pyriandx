@@ -18,36 +18,37 @@ class client:
                         'X-Auth-Key':key,
                         'X-Auth-Institution':institution
                 }
-                self.DATA_PATH = pkg_resources.resource_filename('pyriandx', 'json/') #this is required to import static data from the module
+                self.data_path = pkg_resources.resource_filename('pyriandx', 'json/') 
+                #this is required to import static data from the module
 
         def create_case(self,data):
                 """Creates case with given accession number"""
 
-                with open(self.DATA_PATH + 'create_case.json', 'r') as f:
+                with open(self.data_path + 'create_case.json', 'r') as f:
                         request_data = json.load(f)
 
                 request_data["specimens"][0]["accessionNumber"] = data["accessionNumber"]
                 log.debug("Creating case with data:")
                 log.debug(pformat(request_data))
-                response = self.post_api("/case",data=request_data).json()
+                response = self._post_api("/case",data=request_data).json()
                 return response["id"]
 
         def create_sequencer_run(self,data):
                 """Creates case with given accession number"""
 
-                with open(self.DATA_PATH + 'create_sequencer_run.json', 'r') as f:
+                with open(self.data_path + 'create_sequencer_run.json', 'r') as f:
                         request_data = json.load(f)
 
                 request_data["specimens"][0]["accessionNumber"] = data["accessionNumber"]
                 log.debug("Creating sequencer run with data:")
                 log.debug(pformat(request_data))
-                response = self.post_api("/sequencerRun",data=request_data).json()
+                response = self._post_api("/sequencerRun",data=request_data).json()
                 return response["id"]
 
         def create_job(self,case_id, accession_number):
                 """Creates job with given accession number"""
 
-                with open(self.DATA_PATH + 'create_job.json', 'r') as f:
+                with open(self.data_path + 'create_job.json', 'r') as f:
                         request_data = json.load(f)
 
 
@@ -57,7 +58,7 @@ class client:
 
                 endpoint = "/case/"+str(case_id)+"/informaticsJobs"
 
-                self.post_api(endpoint,data=request_data)
+                self._post_api(endpoint,data=request_data)
 
                 
                 
@@ -66,7 +67,7 @@ class client:
                 files = {'file': open(filename, 'rb')}
                 endpoint = "/case/"+str(case_id)+"/caseFiles/"+filename
                 log.debug("Upload file to endpoint: " + endpoint)
-                self.post_api(endpoint,files=files)
+                self._post_api(endpoint,files=files)
 
 
 
@@ -74,16 +75,13 @@ class client:
                 """Get status of job"""
                 pass
         
-        def add_sequencer_run(self,accession_number):
-                """Add sequencer run"""
-                pass
         
         def get_case_info(self,case_id):
                 """Get case info for given case ID"""
-                return self.get_api("/case/"+str(case_id))
+                return self._get_api("/case/"+str(case_id))
 
 
-        def get_api(self, endpoint): 
+        def _get_api(self, endpoint): 
                 """Internal function to create get requests to the API"""
                 url = self.baseURL + endpoint
                 log.debug("Sending request to {}".format(url))
@@ -106,16 +104,18 @@ class client:
                         log.debug("call took {} seconds".format(t1 - t0))
 
 
-        def post_api(self, endpoint, data=None, files=None): 
+        def _post_api(self, endpoint, data=None, files=None): 
                 """Internal function to create post requests to the API"""
                 url = self.baseURL + endpoint
                 log.debug("Sending request to {}".format(url))
                 t0 = time.time()
 
-                post_headers = self.headers
+                post_headers = self.headers.copy()
+                
                 if data is not None:        
                         post_headers['Content-Type'] = "application/json"
                         post_headers['Accept-Encoding'] = "*"
+
 
                 # uncomment if youd like to inspect the json data we're sending
                 # with open("request-debug.json", "w") as data_file:
