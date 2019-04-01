@@ -25,3 +25,14 @@ def requests_retry_session(headers,retries=4,backoff_factor=1,status_forcelist=(
         session.mount('https://', adapter)
         session.headers.update(headers)
         return session
+
+def get_filename_from_response(cd):
+    """
+    Get filename from content-disposition
+    """
+    if not cd:
+        return None
+    fname = re.findall('filename=(.+)', cd)
+    if len(fname) == 0:
+        return None
+    return fname[0]
