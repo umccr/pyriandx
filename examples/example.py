@@ -3,9 +3,10 @@ import random
 import time
 import sys
 import os
+import logging
 
 if not os.environ.get('PYRIAN_KEY'):
-    print("PYRIAN_KEY not set in environment! Please set with your pieriandx password and try again.")
+    logging.critical("PYRIAN_KEY not set in environment! Please set with your pieriandx password and try again.")
     sys.exit(1)
 
 
@@ -20,25 +21,27 @@ data = {}
 data["accessionNumber"] = accession_number
 
 case_id = client.create_case(data)
-print("got case id ", case_id)
+log.info("got case id ", case_id)
 
 case_info = client.get_case_info(case_id)
-print("got case info:")
-print(case_info)
+log.info("got case info:")
+log.info(case_info)
 
-print("uploading file...")
+log.info("uploading file...")
 client.upload_file('example.vcf', case_id)
 
-print("creating job...")
+log.info("creating job...")
 client.create_job_vcf(case_id)
 
-print("Waiting for job to finish...")
+log.info("Waiting for job to finish...")
 status=client.get_job_status(case_id)
 while status != "complete":
-    print("Sleeping for 60 seconds before continuing...")
+    log.info("Sleeping for 60 seconds before continuing...")
     time.sleep(60)
     status=client.get_job_status(case_id)
 
-print("Downloading report...")
+log.info("Downloading report...")
 client.get_report(case_id, "output")
+
+log.info("Done")
 

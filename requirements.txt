@@ -1,4 +1,4 @@
-nose
-sphinx
 requests
-termcolor
+docopt
+setuptools
+coloredlogs

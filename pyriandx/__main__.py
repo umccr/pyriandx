@@ -5,20 +5,19 @@ from pprint import pprint, pformat
 import time
 
 import pyriandx.cli as cli
+from pyriandx.client import client as _client
 from pyriandx.log import *
-import pyriandx
+
 
 def main(args=sys.argv[1:]):
 
     args = cli.parse_args(args)
 
     if args['--verbose'] == True:
-        log.info("setting verbose")
         coloredlogs.install(level='DEBUG')
-        log.debug("yes?")
         os.environ["DEBUG_HTTP"] = "true"
 
-    log.debug("Received arguments:" + str(args))
+    log.debug("Received arguments:\n" + str(args))
 
     input_file    = args['<json-file>']
     target_vcf    = args['<target-vcf>']
@@ -27,7 +26,7 @@ def main(args=sys.argv[1:]):
     password      = args['--password']
     institution   = args['--institution']
 
-    client = pyriandx.client(
+    client = _client(
     email=username,
     key=password,
     institution=institution
