@@ -1,17 +1,23 @@
 # -*- coding: utf-8 -*-
 import datetime
 import json
-import logging as log
 import pkg_resources
 from pprint import pprint, pformat
 import time
 import shutil
 import requests
 
-from .utilities import *
+
+from pyriandx.log import log
+from pyriandx.utilities import requests_retry_session
+
+
+# ###HACK
+# import random
+# ###HACK
+
 
 class client:
-        log.basicConfig(level=log.DEBUG)
 
         def __init__(self, email, key, institution, baseURL="https://app.uat.pieriandx.com/cgw-api/v2.0.0"):
                 self.baseURL=baseURL
@@ -30,9 +36,15 @@ class client:
                 with open(case_data_file, 'r') as f:
                         request_data = json.load(f)
 
+                # ###HACK
+                # accession_number = random.randint(1,9999)
+                # request_data["specimens"][0]["accessionNumber"] = accession_number
+                # ###HACK
+
                 log.debug("Creating case with data:")
                 log.debug(request_data)
                 response = self._post_api("/case",data=request_data).json()
+
                 return response["id"]
 
 
@@ -171,8 +183,8 @@ class client:
 
 
                 # uncomment if youd like to inspect the json data we're sending
-                with open("request-debug.json", "w") as data_file:
-                        json.dump(data, data_file, indent=2)
+                # with open("request-debug.json", "w") as data_file:
+                #         json.dump(data, data_file, indent=2)
 
                 try: 
                         response = requests_retry_session(post_headers,retries=0).post(url, json=data, files=files)

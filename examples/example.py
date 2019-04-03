@@ -2,10 +2,16 @@ import pyriandx
 import random
 import time
 import sys
+import os
+
+if not os.environ.get('PYRIAN_KEY'):
+    print("PYRIAN_KEY not set in environment! Please set with your pieriandx password and try again.")
+    sys.exit(1)
+
 
 client = pyriandx.client(
-    email="xxxxx",
-    key="xxxxx",
+    email="oldmate@fullysick.edu.gov.au",
+    key=os.environ.get('PYRIAN_KEY'), #Do not hardcode creds please :)
     institution="xxxxx"
     )
 

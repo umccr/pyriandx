@@ -2,7 +2,8 @@ from docopt import docopt
 import sys
 import os
 import logging as log
-from termcolor import colored
+
+from pyriandx.log import *
 
 
 from . import __title__, __version__, __description__, PROG
@@ -12,7 +13,7 @@ __doc__ = f'''
 {__title__} ::: {__description__}
 
 Usage: 
-   {PROG} [-hv] [--username <username>] [--password <password>] --institution <institution> --json <json-file> <target-case-directory>
+   {PROG} [-hxv] [--username <username>] [--password <password>] [--output-dir <output-dir>] --institution <institution> --json <json-file> <target-vcf>
 
 Options:
    -h, --help                      Prints this help and exit
@@ -21,7 +22,9 @@ Options:
    -u, --username=username         Username for PierianDX service, usually an email address. Overrides environment if it exists.
    -p, --password=password         Password for PierianDX service. Overrides environment if it exists.
    -j, --json                      JSON file with details for target
-   -i, --institution=institution   Institution to use for API authentication.
+   -i, --institution=institution   Institution to use for API authentication
+   -o, --output-dir=output-dir     Directory to place downloaded reports. [default: output]
+   -x, --verbose                   Make output more verbose innit
    
 
 Environment variables:
