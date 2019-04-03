@@ -24,17 +24,17 @@ class client:
                 self.data_path = pkg_resources.resource_filename('pyriandx', 'json/') 
                 
 
-        def create_case(self,data):
-                """Creates case with given accession number"""
+        def create_case(self,case_data_file):
+                """Creates case with given case data file"""
 
-                with open(self.data_path + 'create_case.json', 'r') as f:
+                with open(case_data_file, 'r') as f:
                         request_data = json.load(f)
 
-                request_data["specimens"][0]["accessionNumber"] = data["accessionNumber"]
                 log.debug("Creating case with data:")
-                log.debug(pformat(request_data))
+                log.debug(request_data)
                 response = self._post_api("/case",data=request_data).json()
                 return response["id"]
+
 
         def create_sequencer_run(self,data):
                 """Creates case with given accession number"""
@@ -56,13 +56,9 @@ class client:
                 with open(self.data_path + 'create_job.json', 'r') as f:
                         request_data = json.load(f)
 
-
                 request_data["input"][0]["accessionNumber"] = str(accession_number)
-
                 log.debug("Creating job with case_id: " + str(case_id) + " accession_number: " + str(accession_number))
-
                 endpoint = "/case/"+str(case_id)+"/informaticsJobs"
-
                 self._post_api(endpoint,data=request_data)
 
 
@@ -99,7 +95,7 @@ class client:
                 """
 
                 log.debug("Finding report IDs for case " + str(case_id))
-                case_info=self.get_case_info(case_id)
+                case_info = self.get_case_info(case_id)
                 if 'reports' not in case_info:
                         log.info("No reports available for case " + str(case_id) + ". Try again later.")
                         return
@@ -175,8 +171,8 @@ class client:
 
 
                 # uncomment if youd like to inspect the json data we're sending
-                # with open("request-debug.json", "w") as data_file:
-                #         json.dump(data, data_file, indent=2)
+                with open("request-debug.json", "w") as data_file:
+                        json.dump(data, data_file, indent=2)
 
                 try: 
                         response = requests_retry_session(post_headers,retries=0).post(url, json=data, files=files)

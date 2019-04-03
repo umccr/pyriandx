@@ -33,7 +33,6 @@ while status != "complete":
     time.sleep(60)
     status=client.get_job_status(case_id)
 
-
 print("Downloading report...")
 client.get_report(case_id, "output")
 
