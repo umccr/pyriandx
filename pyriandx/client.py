@@ -6,7 +6,7 @@ from pprint import pprint, pformat
 import time
 import shutil
 import requests
-
+import os
 
 from pyriandx.log import log
 from pyriandx.utilities import requests_retry_session
@@ -118,6 +118,7 @@ class client:
                         url = self.baseURL + "/case/"+str(case_id)+"/reports/"+report_id+"?format=pdf"
 
                         if output_dir is not None:
+                                os.makedirs(output_dir,exist_ok=True)
                                 local_filename = output_dir + "/" + local_filename
 
                         log.info("Found report with id " + report_id + ". Downloading as " + local_filename + " from " +url)
