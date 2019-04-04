@@ -9,7 +9,7 @@ env:
 install:
   - pip install .
 script:
-  - sudo apt-get update && apt-get install -y wget jq
+  - sudo apt-get update && sudo apt-get install -y wget jq
   - wget https://github.com/umccr/pyriandx_test_data/raw/master/COLO829__COLO829T-somatic.pcgr_acmg2.vcf.gz
   - gunzip COLO829__COLO829T-somatic.pcgr_acmg2.vcf.gz
   - cat pyriandx/json/create_case.json | jq ".specimens[0].accessionNumber = $RANDOM" > create_case.json
