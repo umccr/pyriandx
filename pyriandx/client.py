@@ -48,13 +48,13 @@ class client:
                 return response["id"]
 
 
-        def create_sequencer_run(self,data):
+        def create_sequencer_run(self,accession_number):
                 """Creates case with given accession number"""
 
                 with open(self.data_path + 'create_sequencer_run.json', 'r') as f:
                         request_data = json.load(f)
 
-                request_data["specimens"][0]["accessionNumber"] = data["accessionNumber"]
+                request_data["specimens"][0]["accessionNumber"] = accession_number
                 log.debug("Creating sequencer run with data:")
                 log.debug(pformat(request_data))
                 response = self._post_api("/sequencerRun",data=request_data).json()
