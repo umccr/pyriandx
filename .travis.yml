@@ -1,7 +1,4 @@
 language: python
-branches:
-  only:
-  - master
 env:
   global:
   - secure: FhSv92Ofmn40uHB0XrTNkmQb3HYm38F4CKTZHqtpcnRVD2kq9RTZcZ2MPevVvBezxEvtGd631y9L4HFYcWcrGmRVJUFeTCfQxbWQ24mWc2RM6hTdUxNtDv9TI7sgUR51IGopEix6maMG34KAxwgEwwadJudPHEwOMOPpH5wnaffH4vvZioatnmMfoDHjgMOLp3NoU9A9W+/7SY6Lu113k3KyDQwhMN7xF15QoGEmN0Otfj/I/Uv0x4SaZImc+mNc0Bo97jhYqz7CGrWaqDRPY3cWq88gaHS6yXfep6dj8gidhIOXQAqjMpYjgPwxyvV7IkArbnrDL/5gUecopJ6JwaVE4YyMejfMYRcxAnT+SYTsce8alNPq2H35AuIpnZYAHfu1zXCTbvTo/7q2/y6C1srAwJUVICr2e2zNT675O2SqCd9plEEN2DGASxo/Ty9wXNPOYeJsq7VWIPYrSUlECl93DFS/AHITMJHZVhCbhYTsvO2gHwWJgCSVWAjOHtT1NWqe4L+gpBrPu8w+D3vGu/CKv7Fqw8OaPBkH8B0JszPnZPSalGrIMq+Utx1MoWTe6KHcmGJsvIdC67YlsC2n1wG52ClG0WHDSeBf3mvcP35dwu5BXrZgkOIxZTPoOHlcaB7IHehi1K42iEpqRYu3qJF1AwmUs3KDUJIttMKFrfs=
@@ -15,5 +12,16 @@ script:
 - sudo apt-get update && sudo apt-get install -y wget jq
 - wget https://github.com/umccr/pyriandx_test_data/raw/master/COLO829__COLO829T-somatic.pcgr_acmg2.vcf.gz
 - gunzip COLO829__COLO829T-somatic.pcgr_acmg2.vcf.gz
-- cat pyriandx/json/create_case.json | jq ".specimens[0].accessionNumber = $RANDOM" > create_case.json
-- pyriandx --username $USERNAME --password $PASSWORD --institution $INSTITUTION --json create_case.json COLO829__COLO829T-somatic.pcgr_acmg2.vcf
+- cat pyriandx/json/create_case.json | jq ".specimens[0].accessionNumber = $RANDOM"
+  > create_case.json
+- pyriandx --username $USERNAME --password $PASSWORD --institution $INSTITUTION --json
+  create_case.json COLO829__COLO829T-somatic.pcgr_acmg2.vcf
+deploy:
+  provider: pypi
+  user: umccr
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    python: 3.7
+  password:
+    secure: Y6b935cYj3Cu1uf82a1cv8LzuLyx+A2mmZRtRY2yQIjtCUBZCmfI+oOxF9+65FxWto1RkkknCDzo2KtWwKF1LDd/y1iQOPA87+FC/20ylyInAzLYzzO8yYUySPXD7p2be0sU44Kx+nQBkiGQNDQHNVpbcQXwO0X9ukXfWWVdj/1pNA4Wj4NZgy1EHP63Ikf1+PM6vaS7o5fmEWv+4eT0Y3HF9iXSH8xMi2Yq/QUWG/rxI4F6+elmO6EP5feO7YCAD8lapIl/sgKy3/WFz0IKxDJhUz/FbzzmDWCCZeMLGMToUBTbL4LfceERmbbvh13RJk4CjrYuZtZA5u6CmHTrnTy2kgWKUoMr54u9oTkrb25O3DL8g+JMY7E0UN8/NJEs720+KhntZ5VJ6VsCvETBX11XnHAgCBqSCF1iwgltHXg3rfMTQ29pTVB8z2nt7DXKQ7tf5KdoYMAAC2ULOi49lQAmJlHv3noZU8VcP+cREVb8PYDz7Gnuj++YgF+W+v/6gmUEEXyNoqFJluMX7oTIm5/8YmeGrePCEObVFQ9wXeW3vfJuJMNRwry4ZxnL63z9PU6JuWNd/ytMbjDU14SMO6Hp+UAxd9Kf60RKnovD5oay9sQhK3i6yFQjQ4QOlkYQJQXWMghgFItUZ2vB4StHI6w646LLy1V62BTs3PT8v0M=
