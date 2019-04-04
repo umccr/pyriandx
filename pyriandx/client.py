@@ -120,13 +120,13 @@ class client:
                         if output_dir is not None:
                                 local_filename = output_dir + "/" + local_filename
 
-                        log.debug("Found report with id " + report_id + ". Downloading as " + local_filename + " from " +url)
+                        log.info("Found report with id " + report_id + ". Downloading as " + local_filename + " from " +url)
                         r = requests.get(url,stream=True, headers=self.headers)
                         if r.ok:
                                 with open(local_filename, 'wb') as f:
                                         shutil.copyfileobj(r.raw, f)
                         else:
-                                log.warn("Issue downloading file from " + endpoint + ". Skipping.")
+                                log.critical(f"Issue downloading file from {endpoint}. {r.status_code} ::: {r.text}")
                         
 
 
