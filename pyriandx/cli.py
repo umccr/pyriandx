@@ -38,10 +38,11 @@ def parse_args(argv=sys.argv[1:]):
    version = f'{__title__} (version {__version__})'
    args = docopt(__doc__, argv, help=True, version=version)
 
-   if os.environ.get('USERNAME') and not args['--username']:
+   if os.environ.get('PDX_USER') and not args['--username']:
+      print()
       args['--username'] = os.environ.get('PDX_USER')
    
-   if os.environ.get('PASSWORD') and not args['--password']:
+   if os.environ.get('PDX_SECRET') and not args['--password']:
       args['--password'] = os.environ.get('PDX_SECRET')
 
    if not args['--username']:
