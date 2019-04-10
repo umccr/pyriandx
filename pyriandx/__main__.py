@@ -36,42 +36,44 @@ def main(args=sys.argv[1:]):
 
     log.info("Creating case with input file: " + input_file)    
     case_id = client.create_case(input_file)
-    log.info("Successfully created case with ID: " + str(case_id))
+    log.info(f"Successfully created case with ID: {case_id}")
 
-    log.info(f"Uploading target vcf {target_vcf}...")
+    log.info(f"Uploading target vcf {target_vcf} as case file...")
     client.upload_file(target_vcf, case_id)
 
-    log.info("Creating processing job...")
-    client.create_job_vcf(case_id)
+    log.info("Adding sequencer run...")
+    accession_number = client.parse_accession_number(input_file)
+    seq_run_id = client.create_sequencer_run(accession_number)
 
-    sys.stdout.write("Waiting for job to transition to 'running' (API BUG)...   ") #logging doesn't allow surpression of newline
-    status=client.get_job_status(case_id)
-    while status != "running":
-        log.debug(f"Status is: {status}")
-        for _ in range(15): #Check API every 30 seconds
-            for c in spin:
-                sys.stdout.write("\b%s" % c)
-                sys.stdout.flush()
-                time.sleep(.5)
-        status=client.get_job_status(case_id)
+    log.info("Creating processing job...")
+    job_id = client.create_job(case_id,accession_number,seq_run_id, target_vcf)
 
     # #TODO: what are the other statuses?
     sys.stdout.write("\nJob is running, waiting for it to 'complete'...   ")
     status=client.get_job_status(case_id)
-    while status != "complete":
+    count = 0
+    while status != "complete" and status != "failed" and count < 60: #wait 30 mins max
         log.debug(f"Status is: {status}")
-        for _ in range(15): #Check API every 30 seconds
+        for _ in range(15): #Check API every 30 seconds, and write out a spinny thing while we wait
             for c in spin:
                 sys.stdout.write("\b%s" % c)
                 sys.stdout.flush()
                 time.sleep(.5)
         status=client.get_job_status(case_id)
-
+        count = count + 1
     sys.stdout.write('\n')
-    print("Downloading report...")
-    client.get_report(case_id, "output")
 
-    log.info("Done.")
+    if status == "complete":
+        log.info("Job has completed. Downloading report...")
+        client.get_report(case_id, "output")
+        log.info("\n\nDone.")
+    elif status == "failed":
+        log.critical(f"Job did not complete, status was {status}. Please send support request to support@pieriandx.com with the following info:")
+        log.info(f"case id: {case_id}")
+        log.info(f"job id: {job_id}")
+        log.info(f"accession number:  {accession_number}")
+        
+    
 
 
 

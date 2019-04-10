@@ -1,12 +1,23 @@
 {
+    "dateCreated": "2018-10-03T11:15:38.344Z",
+    "dateEnded": "2018-10-03T11:15:38.344Z",
+    "dateStarted": "2018-10-03T11:15:38.344Z",
     "input": [
         {
-            "accessionNumber": "api_test_1",
+            "accessionNumber": "doc2-purpose-2135_Acute_myeloid_leukemia6",
             "sequencerRunInfos": [
                 {
                     "barcode": "AAACAT",
+                    "files": [
+                        {
+                            "description": "description",
+                            "name": "nameofthefile",
+                            "size": 10069901,
+                            "type": "vcf"
+                        }
+                    ],
                     "lane": "1",
-                    "runId": "api_test_1_run"
+                    "runId": "runID12345"
                 }
             ]
         }

@@ -12,11 +12,6 @@ from pyriandx.log import log
 from pyriandx.utilities import requests_retry_session
 
 
-# ###HACK
-# import random
-# ###HACK
-
-
 class client:
 
         def __init__(self, email, key, institution, baseURL="https://app.uat.pieriandx.com/cgw-api/v2.0.0"):
@@ -36,16 +31,23 @@ class client:
                 with open(case_data_file, 'r') as f:
                         request_data = json.load(f)
 
-                # ###HACK
-                # accession_number = random.randint(1,9999)
-                # request_data["specimens"][0]["accessionNumber"] = accession_number
-                # ###HACK
-
                 log.debug("Creating case with data:")
                 log.debug(request_data)
                 response = self._post_api("/case",data=request_data).json()
 
                 return response["id"]
+        
+
+        def parse_accession_number(self,case_data_file):
+                """Parses accession number out of case file"""
+
+                with open(case_data_file, 'r') as f:
+                        case_data = json.load(f)
+
+                accession_number = str(case_data["specimens"][0]["accessionNumber"])
+                log.debug("Found accession number: " + accession_number)
+
+                return accession_number
 
 
         def create_sequencer_run(self,accession_number):
@@ -62,16 +64,23 @@ class client:
 
 
 
-        def create_job(self,case_id, accession_number):
-                """Creates job with given accession number - NOT CURRENTLY WORKING"""
+        def create_job(self,case_id, accession_number, seq_run_id, target_vcf):
+                """Creates job with given accession number, sequence run id, and target vcf file"""
 
                 with open(self.data_path + 'create_job.json', 'r') as f:
                         request_data = json.load(f)
 
                 request_data["input"][0]["accessionNumber"] = str(accession_number)
+                request_data["input"][0]["sequencerRunInfos"][0]["files"][0]["name"] = target_vcf
+                request_data["input"][0]["sequencerRunInfos"][0]["files"][0]["description"] = target_vcf
+
                 log.debug("Creating job with case_id: " + str(case_id) + " accession_number: " + str(accession_number))
                 endpoint = "/case/"+str(case_id)+"/informaticsJobs"
-                self._post_api(endpoint,data=request_data)
+
+                log.debug(pformat(request_data))
+
+                response = self._post_api(endpoint,data=request_data).json()
+                return response["jobId"]
 
 
 
@@ -134,7 +143,7 @@ class client:
         def upload_file(self,filename, case_id):
                 """Upload file to given accession number"""
                 files = {'file': open(filename, 'rb')}
-                endpoint = "/case/"+str(case_id)+"/caseFiles/"+filename
+                endpoint = "/case/"+str(case_id)+"/caseFiles/"+filename+"/"
                 log.debug("Upload file to endpoint: " + endpoint)
                 self._post_api(endpoint,files=files)
         
@@ -182,24 +191,28 @@ class client:
                         post_headers['Content-Type'] = "application/json"
                         post_headers['Accept-Encoding'] = "*"
 
+                if files is None: 
+                        upload = False
+                else:
+                        upload = True #prevents seeing every. single. byte. in file upload during verbose mode
 
                 # uncomment if youd like to inspect the json data we're sending
                 # with open("request-debug.json", "w") as data_file:
                 #         json.dump(data, data_file, indent=2)
 
                 try: 
-                        response = requests_retry_session(post_headers,retries=0).post(url, json=data, files=files)
+                        response = requests_retry_session(post_headers,upload=upload).post(url, json=data, files=files)
                 except Exception as x:
                         log.critical('{} call failed after retry: {}'.format(endpoint, x))
                 else:
                         if(response.status_code == 200):
                                 log.debug("call to " + endpoint + " succeeded")
                                 log.debug("response was " + response.text)
-                                return response
                         else:
                                 log.critical('Call to {} failed. Error code was {}'.format(endpoint, response.status_code))
                                 log.critical("server responded with " + response.text)
-                                #what to return here?
+
+                        return response
                 finally:
                         t1 = time.time()
                         log.debug("Call took {} seconds".format(t1 - t0))
