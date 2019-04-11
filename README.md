@@ -47,4 +47,4 @@ Environment variables:
 
 
 ### Using as a module
-Check the `examples/` folder for some sweet example code. 
+Check the code under `__main__.py` to see how this can be used as an importable module.
