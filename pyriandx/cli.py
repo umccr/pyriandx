@@ -87,14 +87,14 @@ def _build(global_args):
     username = global_args.get('--username', None)
     if username is None:
         username = os.getenv('PDX_USER', None)  # backward compatible
-    elif username is None:
+    if username is None:
         username = os.getenv('PDX_USERNAME', None)
     assert username is not None, _die("Please provide username via -u flag or PDX_USERNAME environment variable")
 
     pw = global_args.get('--password', None)
     if pw is None:
         pw = os.getenv('PDX_SECRET', None)  # backward compatible
-    elif pw is None:
+    if pw is None:
         pw = os.getenv('PDX_PASSWORD', None)
     assert pw is not None, _die("Please provide password via -p flag or PDX_PASSWORD environment variable")
 
