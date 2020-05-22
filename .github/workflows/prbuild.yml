@@ -1,5 +1,11 @@
 name: Pull Request Build
 
+env:
+  PDX_USERNAME: mock
+  PDX_PASSWORD: mock
+  PDX_INSTITUTION: mock
+  PDX_BASE_URL: mock
+
 on:
   push:
     branches:
