@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>pyriandx.cli API documentation</title>
+<meta name="description" content="PierianDx API Client ::: API client CLI/SDK for PierianDx web services …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyriandx.cli</code></h1>
+</header>
+<section id="section-intro">
+<p>PierianDx API Client ::: API client CLI/SDK for PierianDx web services</p>
+<h2 id="usage">Usage</h2>
+<p>pyriandx <command> [options] [<args>&hellip;]</p>
+<h2 id="command">Command</h2>
+<p>help
+Print help and exit
+version
+Print version and exit
+case
+Get a case from Case API
+list
+List cases from Case API, optionally apply filters to limit results
+create
+Accession a new case from given input JSON file
+upload
+Upload case files for given Case ID
+run
+Create sequencer run for given Case ID
+job
+Create informatics job for given Case ID and Run ID
+poll
+Poll informatics job status for given Case ID and Job ID
+report
+Get a report for given Case ID</p>
+<p>(See 'pyriandx <command> help' for more information on a specific command)</p>
+<h2 id="options">Options</h2>
+<p>-b, &ndash;base_url=base_url
+Base URL. [default: <a href="https://app.uat.pieriandx.com/cgw-api/v2.0.0].">https://app.uat.pieriandx.com/cgw-api/v2.0.0].</a>
+-u, &ndash;username=username
+Required if PDX_USERNAME does not exist. Usually email address.
+-p, &ndash;password=password
+Required if PDX_PASSWORD does not exist.
+-i, &ndash;institution=institution
+Required if PDX_INSTITUTION does not exist.
+-d, &ndash;debug
+Make output more verbose innit.
+-t, &ndash;trace
+Make output more and more verbose innit.</p>
+<p>Environment variables:
+PDX_USERNAME
+If defined, uses this as username for authenticating to PierianDx
+PDX_PASSWORD
+If defined, uses this as password for authenticating to PierianDx
+PDX_INSTITUTION
+If defined, uses this as institution for authenticating to PierianDx
+PDX_BASE_URL
+If defined, uses this as base URL for PierianDx service</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;PierianDx API Client ::: API client CLI/SDK for PierianDx web services
+
+Usage:
+    pyriandx &lt;command&gt; [options] [&lt;args&gt;...]
+
+Command:
+    help        Print help and exit
+    version     Print version and exit
+    case        Get a case from Case API
+    list        List cases from Case API, optionally apply filters to limit results
+    create      Accession a new case from given input JSON file
+    upload      Upload case files for given Case ID
+    run         Create sequencer run for given Case ID
+    job         Create informatics job for given Case ID and Run ID
+    poll        Poll informatics job status for given Case ID and Job ID
+    report      Get a report for given Case ID
+
+(See &#39;pyriandx &lt;command&gt; help&#39; for more information on a specific command)
+
+Options:
+    -b, --base_url=base_url         Base URL. [default: https://app.uat.pieriandx.com/cgw-api/v2.0.0].
+    -u, --username=username         Required if PDX_USERNAME does not exist. Usually email address.
+    -p, --password=password         Required if PDX_PASSWORD does not exist.
+    -i, --institution=institution   Required if PDX_INSTITUTION does not exist.
+    -d, --debug                     Make output more verbose innit.
+    -t, --trace                     Make output more and more verbose innit.
+
+Environment variables:
+    PDX_USERNAME       If defined, uses this as username for authenticating to PierianDx
+    PDX_PASSWORD       If defined, uses this as password for authenticating to PierianDx
+    PDX_INSTITUTION    If defined, uses this as institution for authenticating to PierianDx
+    PDX_BASE_URL       If defined, uses this as base URL for PierianDx service
+&#34;&#34;&#34;
+import json
+import logging
+import os
+import sys
+import time
+
+import coloredlogs
+import verboselogs
+from docopt import docopt
+
+from pyriandx.client import Client
+from . import __version__
+
+logger = verboselogs.VerboseLogger(__name__)
+verboselogs.add_log_level(verboselogs.SPAM, &#39;TRACE&#39;)
+verboselogs.install()
+
+coloredlogs.DEFAULT_LOG_FORMAT = &#39;%(asctime)s %(name)-12s \t %(levelname)-8s %(message)s&#39;
+coloredlogs.DEFAULT_LEVEL_STYLES = dict(
+    spam=dict(color=&#39;green&#39;, faint=True),
+    debug=dict(color=&#39;green&#39;),
+    verbose=dict(),
+    info=dict(),
+    notice=dict(color=&#39;magenta&#39;),
+    warning=dict(color=&#39;yellow&#39;),
+    success=dict(color=&#39;green&#39;, bold=True),
+    error=dict(color=&#39;red&#39;),
+    critical=dict(color=&#39;red&#39;, bold=True),
+)
+coloredlogs.install()
+
+DEFAULT_BASE_URL = &#34;https://app.uat.pieriandx.com/cgw-api/v2.0.0&#34;
+
+
+def _help(msg):
+    print(msg)
+    sys.exit(0)
+
+
+def _die(msg):
+    print(__doc__)
+    logger.critical(f&#34;{msg}.&#34;)
+    sys.exit(1)
+
+
+def _halt(msg, doc):
+    print(doc)
+    logger.critical(f&#34;{msg}.&#34;)
+    sys.exit(1)
+
+
+def _build(global_args):
+    username = global_args.get(&#39;--username&#39;, None)
+    if username is None:
+        username = os.getenv(&#39;PDX_USER&#39;, None)  # backward compatible
+    elif username is None:
+        username = os.getenv(&#39;PDX_USERNAME&#39;, None)
+    assert username is not None, _die(&#34;Please provide username via -u flag or PDX_USERNAME environment variable&#34;)
+
+    pw = global_args.get(&#39;--password&#39;, None)
+    if pw is None:
+        pw = os.getenv(&#39;PDX_SECRET&#39;, None)  # backward compatible
+    elif pw is None:
+        pw = os.getenv(&#39;PDX_PASSWORD&#39;, None)
+    assert pw is not None, _die(&#34;Please provide password via -p flag or PDX_PASSWORD environment variable&#34;)
+
+    inst = global_args.get(&#39;--institution&#39;, None)
+    if inst is None:
+        inst = os.getenv(&#39;PDX_INSTITUTION&#39;, None)
+    assert inst is not None, _die(&#34;Please provide institution via -i flag or PDX_INSTITUTION environment variable&#34;)
+
+    base_url = global_args.get(&#39;--base_url&#39;, None)
+    if base_url is None:
+        base_url = os.getenv(&#39;PDX_BASE_URL&#39;, None)
+        if base_url is None:
+            base_url = DEFAULT_BASE_URL
+
+    if &#34;uat&#34; in base_url:
+        logger.warning(f&#34;You are working on PierianDx CGW &#39;UAT&#39; environment -- {base_url}&#34;)
+    else:
+        logger.notice(f&#34;Your working PierianDx CGW environment is -- {base_url}&#34;)
+
+    return Client(email=username, key=pw, institution=inst, base_url=base_url)
+
+
+def _dispatch():
+    global_args: dict = docopt(__doc__, sys.argv[1:], version=__version__)
+
+    if global_args[&#39;--debug&#39;]:
+        coloredlogs.install(level=logging.DEBUG)
+
+    if global_args[&#39;--trace&#39;]:
+        coloredlogs.install(level=verboselogs.SPAM)
+        os.environ[&#39;DEBUG_HTTP&#39;] = &#34;true&#34;
+
+    command_argv = [global_args[&#39;&lt;command&gt;&#39;]] + global_args[&#39;&lt;args&gt;&#39;]
+
+    logger.spam(f&#34;Global arguments:\n {global_args}&#34;)
+    logger.spam(f&#34;Command arguments:\n {command_argv}&#34;)
+
+    cmd = global_args[&#39;&lt;command&gt;&#39;]
+    if cmd == &#39;help&#39;:
+        _help(__doc__)
+    elif cmd == &#39;version&#39;:
+        _help(__version__)
+    elif cmd == &#39;case&#39;:
+        Case(global_args, command_argv)
+    elif cmd == &#39;list&#39; or cmd == &#39;ls&#39;:
+        List(global_args, command_argv)
+    elif cmd == &#39;create&#39;:
+        Create(global_args, command_argv)
+    elif cmd == &#39;upload&#39;:
+        Upload(global_args, command_argv)
+    elif cmd == &#39;run&#39;:
+        Run(global_args, command_argv)
+    elif cmd == &#39;job&#39;:
+        Job(global_args, command_argv)
+    elif cmd == &#39;poll&#39;:
+        Poll(global_args, command_argv)
+    elif cmd == &#39;report&#39;:
+        Report(global_args, command_argv)
+    else:
+        _die(f&#34;Command &#39;{cmd}&#39; is invalid. See &#39;pyriandx help&#39;&#34;)
+
+
+class Command:
+
+    def __int__(self):
+        # sub-class should set these
+        self.case_id = None
+        self.client = None
+        self.resources = None
+
+    def get_case(self):
+        assert str(self.case_id).isnumeric(), _halt(f&#34;Invalid Case ID: {self.case_id}&#34;, self.__doc__)
+        logger.info(f&#34;Get a case with ID: {self.case_id}&#34;)
+        case = self.client.get_case_info(self.case_id)
+        assert case is not None and &#34;id&#34; in case, _halt(f&#34;Case not found for ID: {self.case_id}&#34;, self.__doc__)
+        logger.debug(f&#34;Found case with ID: {self.case_id}&#34;)
+        return case
+
+    def upload_case_files(self):
+        files = []
+        for r in self.resources:
+            if os.path.isdir(r):
+                case_files = [f for f in os.listdir(r) if os.path.isfile(os.path.join(r, f))]
+                for cf in case_files:
+                    files.append(os.path.join(r, cf))
+            else:
+                files.append(r)
+
+        for f in files:
+            logger.info(f&#34;Uploading case file: {f}&#34;)
+            self.client.upload_file(f, self.case_id)
+
+
+class Case(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx case help
+    pyriandx case [options] &lt;case-id&gt;
+
+Description:
+    Get a case by given ID from PierianDx CGW. It returns in JSON
+    format. You can further process it e.g. pretty print by pipe
+    through with program such as jq.
+
+Example:
+    pyriandx case 69695
+    pyriandx case 69695 | jq
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Case arguments:\n {args}&#34;)
+        assert args[&#39;case&#39;] is True, _die(&#34;Command mismatch: Case&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+        self.case = self.get_case()
+        print(json.dumps(self.case))  # print here is intended i.e. pyriandx case 1234 | jq
+
+
+class List(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx list help
+    pyriandx list [options] [&lt;filters&gt;...]
+
+Description:
+    List all cases by from PierianDx CGW. It returns in JSON format.
+    You can further process it e.g. pretty print by pipe through with
+    program such as jq. Optionally you can provide filters to limit
+    the return list.
+
+Allow filters:
+    id                      Case ID
+    accessionNumber         Accession Number
+    panel                   The name of the case&#39;s panel
+    dateCreatedStart        Inclusive start range for the date created
+    dateCreatedEnd          Exclusive end range for the date created
+    dateSignedOutStart      Inclusive start range for the date signed out
+    dateSignedOutEnd        Exclusive end range for the date signed out
+
+Example:
+    pyriandx list
+    pyriandx list | jq
+    pyriandx list id=1234
+    pyriandx list accessionNumber=SBJ000123
+    pyriandx list dateSignedOutStart=2020-04-01
+    &#34;&#34;&#34;
+
+    _F = [&#39;id&#39;, &#39;accessionNumber&#39;, &#39;panel&#39;, &#39;dateCreatedStart&#39;,
+          &#39;dateCreatedEnd&#39;, &#39;dateSignedOutStart&#39;, &#39;dateSignedOutEnd&#39;]
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;List arguments:\n {args}&#34;)
+        assert args[&#39;list&#39;] is True, _die(&#34;Command mismatch: List&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.filters = args[&#39;&lt;filters&gt;&#39;]
+
+        logger.debug(f&#34;Filters: {self.filters}&#34;)
+
+        params = {}
+        for ftr in self.filters:
+            assert &#39;=&#39; in ftr, _halt(f&#34;Invalid filter supplied: {ftr}&#34;, self.__doc__)
+            fil = ftr.split(&#39;=&#39;)
+            assert fil[0] in self._F, _halt(f&#34;Invalid filter supplied: {ftr}&#34;, self.__doc__)
+            params.update({fil[0]: fil[1]})
+
+        self.cases = self.client.list_cases(filters=params)
+        print(json.dumps(self.cases))  # print here is intended i.e. pyriandx list | jq
+
+
+class Upload(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx upload help
+    pyriandx upload [options] &lt;case-id&gt; FILES...
+
+Description:
+    FILES... can be a directory that contains list of files that
+    stage to upload. Or, you can also provide individual file with
+    space separated for multiple of them.
+
+Example:
+    pyriandx upload 69695 path/to/SBJ00123/
+    pyriandx upload 69695 file1.vcf.gz file2.vcf.gz file3.cnv
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Create arguments:\n {args}&#34;)
+        assert args[&#39;upload&#39;] is True, _die(&#34;Command mismatch: Upload&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+        self.resources = args[&#39;FILES&#39;]
+        self.client: Client = _build(global_args)
+
+        if self.get_case():
+            self.upload_case_files()
+
+
+class Create(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx create help
+    pyriandx create [options] &lt;json-file&gt; [FILES...]
+
+Description:
+    Accession a new case from given input JSON file. Optionally,
+    FILES... can be a directory that contains list of files that
+    stage to upload. Or, you can also provide individual file with
+    space separated for multiple of them.
+
+Example:
+    pyriandx create my_case.json path/to/SBJ00123/
+    pyriandx create my_case.json file1.vcf.gz file2.vcf.gz file3.cnv
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Create arguments:\n {args}&#34;)
+        assert args[&#39;create&#39;] is True, _die(&#34;Command mismatch: Create&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.input_file = args[&#39;&lt;json-file&gt;&#39;]
+        self.resources = args[&#39;FILES&#39;]
+
+        assert str(self.input_file).endswith(&#39;.json&#39;), _halt(f&#34;Case input file must be in JSON format&#34;, self.__doc__)
+        assert os.path.exists(self.input_file), _halt(f&#34;No such file: {self.input_file}&#34;, self.__doc__)
+
+        self.client: Client = _build(global_args)
+
+        logger.info(f&#34;Creating case from input file: {self.input_file}&#34;)
+        self.case_id = self.client.create_case(self.input_file)
+        logger.success(f&#34;Created case with ID: {self.case_id}&#34;)
+
+        if self.resources:
+            self.upload_case_files()
+
+
+class Run(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx run help
+    pyriandx run [options] &lt;case-id&gt;
+
+Description:
+    Create sequencer run for given Case ID. Note that each invocation
+    will create a sequencer run for given case. At the moment, it uses
+    internal `create_sequencer_run.json` template to create a sequencer
+    run. It returns Run ID. It will associate this Run ID with accession
+    number of given case. You typically need at least 1 sequencer run
+    after case has accessioned.
+
+Example:
+    pyriandx run 69695
+    &gt; 1
+    pyriandx run 69695
+    &gt; 2
+    pyriandx case 69695 | jq
+    pyriandx case 69695 | jq &#39;.sequencerRuns[] | select(.runId == &#34;1&#34;)&#39;
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Run arguments:\n {args}&#34;)
+        assert args[&#39;run&#39;] is True, _die(&#34;Command mismatch: Run&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+
+        case = self.get_case()
+
+        if case:
+            self.accession_number = str(case[&#39;specimens&#39;][0][&#39;accessionNumber&#39;])
+            next_run_id = 1  # start from 1
+
+            # check existing sequence run
+            if &#39;sequencerRuns&#39; in case:
+                logger.info(f&#34;Case ID {self.case_id} has existing sequencer runs:&#34;)
+                run_ids = []
+                for run in case[&#39;sequencerRuns&#39;]:
+                    rid = run[&#39;runId&#39;]
+                    logger.info(f&#34;\tRun ID: {rid}, Date Created: {run[&#39;dateCreated&#39;]}&#34;)
+                    if str(rid).isnumeric():  # ignore if not numeric
+                        run_ids.append(rid)
+                if len(run_ids) &gt; 0:
+                    next_run_id = int(sorted(run_ids, reverse=True)[0]) + 1  # increase serial
+
+            logger.info(f&#34;Creating sequencer run for case {self.case_id}&#34;)
+            id_ = self.client.create_sequencer_run(self.accession_number, next_run_id)
+            self.run_id = next_run_id
+            logger.success(f&#34;Created sequencer run with ID: {self.run_id}&#34;)
+
+
+class Job(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx job help
+    pyriandx job [options] &lt;case-id&gt; &lt;run-id&gt;
+
+Description:
+    Create informatics job for given Case ID and Run ID. At the moment,
+    it uses internal `create_job.json` template to create analysis job.
+    It returns Job ID. It will associate this informatics job with given
+    case. The analysis informatics job will kick off right away for the
+    given case and uploaded case files. Note that each invocation will
+    create a new informatics job for given case. It also implies that
+    you should create a case, a sequencer run and uploaded case files
+    before running informatics analysis job.
+
+Example:
+    pyriandx job 69695 1
+    &gt; 19635
+    pyriandx job 69695 1
+    &gt; 19636
+    pyriandx case 69695 | jq
+    pyriandx case 69695 | jq &#39;.informaticsJobs[] | select(.id == &#34;19635&#34;)&#39;
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Job arguments:\n {args}&#34;)
+        assert args[&#39;job&#39;] is True, _die(&#34;Command mismatch: Job&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+        self.run_id = args[&#39;&lt;run-id&gt;&#39;]
+
+        case = self.get_case()
+
+        if &#39;caseFiles&#39; not in case:
+            logger.warning(f&#34;No case files found in your accessioned case. Very likely that informatics job may fail!&#34;)
+
+        assert &#39;sequencerRuns&#39; in case, _halt(f&#34;No sequencer run found in case {self.case_id}&#34;, self.__doc__)
+
+        found = False
+        for run in case[&#39;sequencerRuns&#39;]:
+            if run[&#39;runId&#39;] == self.run_id:
+                found = True
+                continue
+        assert found is True, _halt(f&#34;Sequencer run ID {self.run_id} is not found in case {self.case_id}&#34;, self.__doc__)
+
+        if case:
+            logger.info(f&#34;Creating informatics job for case {self.case_id}&#34;)
+            self.job_id = self.client.create_job(case, self.run_id)
+            logger.success(f&#34;Created informatics job with ID: {self.job_id}&#34;)
+
+
+class Poll(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx poll help
+    pyriandx poll [options] &lt;case-id&gt; &lt;job-id&gt;
+
+Description:
+    Poll informatics job for given Case ID and Job ID. Maximum wait
+    time for polling job status is 30 minutes. It will timeout after
+    30 minutes. You can poll again. Alternatively, you can check the
+    informatics job status in PierianDx CGW dashboard. Or, get a case
+    and filter job ID on the return JSON using jq.
+
+    CAVEAT: Polling job status through API is not perfected yet. Please
+            do not rely on this feature for status check.
+
+Example:
+    pyriandx poll 69695 19635
+    pyriandx poll 69695 19636
+    pyriandx case 69695 | jq
+    pyriandx case 69695 | jq &#39;.informaticsJobs[] | select(.id == &#34;19635&#34;)&#39;
+    pyriandx case 69695 | jq &#39;.informaticsJobs[] | select(.id == &#34;19635&#34;) | .status&#39;
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Poll arguments:\n {args}&#34;)
+        assert args[&#39;poll&#39;] is True, _die(&#34;Command mismatch: Poll&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+        self.job_id = args[&#39;&lt;job-id&gt;&#39;]
+
+        case = self.get_case()
+        self.accession_number = str(case[&#39;specimens&#39;][0][&#39;accessionNumber&#39;])
+        logger.info(f&#34;Accession Number: {self.accession_number}&#34;)
+
+        self.complete = False
+        self.__start_poll()
+
+    def __start_poll(self):
+        status = self.client.get_job_status(self.case_id, self.job_id)
+        logger.info(f&#34;Started polling job {self.job_id} status... (Ctrl+C to exit) &#34;)
+
+        count = 0
+        while status != &#34;complete&#34; and status != &#34;failed&#34; and count &lt; 60:  # wait 30 minutes max
+            logger.info(f&#34;Status is: {status}&#34;)
+            time.sleep(30)  # Check API every 30 seconds
+            status = self.client.get_job_status(self.case_id, self.job_id)
+            count = count + 1
+
+        if count == 60:
+            logger.info(&#34;Job polling has reached timeout 30 minutes&#34;)
+        elif status == &#34;complete&#34;:
+            logger.warning(f&#34;Informatics job {self.job_id} for case {self.case_id} with accession number &#34;
+                           f&#34;{self.accession_number} might have completed&#34;)
+            logger.warning(f&#34;You should check in CGW dashboard to make sure it has completed successfully&#34;)
+            logger.warning(f&#34;CLI API call does not able to differentiate `status` transition effectively at the moment&#34;)
+            self.complete = True
+        elif status == &#34;failed&#34;:
+            logger.critical(f&#34;Job did not complete, status was {status}&#34;)
+            logger.info(f&#34;Please send support request to support@pieriandx.com with the following info:&#34;)
+            logger.info(f&#34;Case ID: {self.case_id}&#34;)
+            logger.info(f&#34;Job ID: {self.job_id}&#34;)
+            logger.info(f&#34;Accession Number: {self.accession_number}&#34;)
+
+
+class Report(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx report help
+    pyriandx report [options] &lt;case-id&gt;
+
+Description:
+    Get a report for given Case ID. It will download report in
+    PDF format and save it into ./output folder.
+
+    CAVEAT: Download report through API is not perfected yet.
+            Please do not rely on this feature.
+
+Example:
+    pyriandx report 69695
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Report arguments:\n {args}&#34;)
+        assert args[&#39;report&#39;] is True, _die(&#34;Command mismatch: Report&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+
+        logger.info(f&#34;Finding report IDs for case: {str(self.case_id)}&#34;)
+        case_ = self.get_case()
+
+        if &#39;reports&#39; not in case_:
+            logger.info(f&#34;No reports available for case {self.case_id}. Try again later.&#34;)
+        else:
+            logger.info(f&#34;Downloading report for case {self.case_id}&#34;)
+            self.client.get_report(case_, &#34;output&#34;)
+            logger.success(&#34;Report download complete. Check in ./output folder&#34;)
+
+
+def main():
+    if len(sys.argv) == 1:
+        sys.argv.append(&#39;help&#39;)
+    python_version = &#34;.&#34;.join(map(str, sys.version_info[:3]))
+    assert sys.version_info &gt;= (3, 6), _die(f&#34;This tool requires Python &gt;=3.6. Found {python_version}&#34;)
+    try:
+        _dispatch()
+    except KeyboardInterrupt:
+        pass</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pyriandx.cli.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    if len(sys.argv) == 1:
+        sys.argv.append(&#39;help&#39;)
+    python_version = &#34;.&#34;.join(map(str, sys.version_info[:3]))
+    assert sys.version_info &gt;= (3, 6), _die(f&#34;This tool requires Python &gt;=3.6. Found {python_version}&#34;)
+    try:
+        _dispatch()
+    except KeyboardInterrupt:
+        pass</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyriandx.cli.Case"><code class="flex name class">
+<span>class <span class="ident">Case</span></span>
+<span>(</span><span>global_args, command_argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="usage">Usage</h2>
+<p>pyriandx case help
+pyriandx case [options] <case-id></p>
+<h2 id="description">Description</h2>
+<p>Get a case by given ID from PierianDx CGW. It returns in JSON
+format. You can further process it e.g. pretty print by pipe
+through with program such as jq.</p>
+<h2 id="example">Example</h2>
+<p>pyriandx case 69695
+pyriandx case 69695 | jq</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Case(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx case help
+    pyriandx case [options] &lt;case-id&gt;
+
+Description:
+    Get a case by given ID from PierianDx CGW. It returns in JSON
+    format. You can further process it e.g. pretty print by pipe
+    through with program such as jq.
+
+Example:
+    pyriandx case 69695
+    pyriandx case 69695 | jq
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Case arguments:\n {args}&#34;)
+        assert args[&#39;case&#39;] is True, _die(&#34;Command mismatch: Case&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+        self.case = self.get_case()
+        print(json.dumps(self.case))  # print here is intended i.e. pyriandx case 1234 | jq</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></li>
+</ul>
+</dd>
+<dt id="pyriandx.cli.Command"><code class="flex name class">
+<span>class <span class="ident">Command</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Command:
+
+    def __int__(self):
+        # sub-class should set these
+        self.case_id = None
+        self.client = None
+        self.resources = None
+
+    def get_case(self):
+        assert str(self.case_id).isnumeric(), _halt(f&#34;Invalid Case ID: {self.case_id}&#34;, self.__doc__)
+        logger.info(f&#34;Get a case with ID: {self.case_id}&#34;)
+        case = self.client.get_case_info(self.case_id)
+        assert case is not None and &#34;id&#34; in case, _halt(f&#34;Case not found for ID: {self.case_id}&#34;, self.__doc__)
+        logger.debug(f&#34;Found case with ID: {self.case_id}&#34;)
+        return case
+
+    def upload_case_files(self):
+        files = []
+        for r in self.resources:
+            if os.path.isdir(r):
+                case_files = [f for f in os.listdir(r) if os.path.isfile(os.path.join(r, f))]
+                for cf in case_files:
+                    files.append(os.path.join(r, cf))
+            else:
+                files.append(r)
+
+        for f in files:
+            logger.info(f&#34;Uploading case file: {f}&#34;)
+            self.client.upload_file(f, self.case_id)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Case" href="#pyriandx.cli.Case">Case</a></li>
+<li><a title="pyriandx.cli.Create" href="#pyriandx.cli.Create">Create</a></li>
+<li><a title="pyriandx.cli.Job" href="#pyriandx.cli.Job">Job</a></li>
+<li><a title="pyriandx.cli.List" href="#pyriandx.cli.List">List</a></li>
+<li><a title="pyriandx.cli.Poll" href="#pyriandx.cli.Poll">Poll</a></li>
+<li><a title="pyriandx.cli.Report" href="#pyriandx.cli.Report">Report</a></li>
+<li><a title="pyriandx.cli.Run" href="#pyriandx.cli.Run">Run</a></li>
+<li><a title="pyriandx.cli.Upload" href="#pyriandx.cli.Upload">Upload</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pyriandx.cli.Command.get_case"><code class="name flex">
+<span>def <span class="ident">get_case</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_case(self):
+    assert str(self.case_id).isnumeric(), _halt(f&#34;Invalid Case ID: {self.case_id}&#34;, self.__doc__)
+    logger.info(f&#34;Get a case with ID: {self.case_id}&#34;)
+    case = self.client.get_case_info(self.case_id)
+    assert case is not None and &#34;id&#34; in case, _halt(f&#34;Case not found for ID: {self.case_id}&#34;, self.__doc__)
+    logger.debug(f&#34;Found case with ID: {self.case_id}&#34;)
+    return case</code></pre>
+</details>
+</dd>
+<dt id="pyriandx.cli.Command.upload_case_files"><code class="name flex">
+<span>def <span class="ident">upload_case_files</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def upload_case_files(self):
+    files = []
+    for r in self.resources:
+        if os.path.isdir(r):
+            case_files = [f for f in os.listdir(r) if os.path.isfile(os.path.join(r, f))]
+            for cf in case_files:
+                files.append(os.path.join(r, cf))
+        else:
+            files.append(r)
+
+    for f in files:
+        logger.info(f&#34;Uploading case file: {f}&#34;)
+        self.client.upload_file(f, self.case_id)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyriandx.cli.Create"><code class="flex name class">
+<span>class <span class="ident">Create</span></span>
+<span>(</span><span>global_args, command_argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="usage">Usage</h2>
+<p>pyriandx create help
+pyriandx create [options] <json-file> [FILES&hellip;]</p>
+<h2 id="description">Description</h2>
+<p>Accession a new case from given input JSON file. Optionally,
+FILES&hellip; can be a directory that contains list of files that
+stage to upload. Or, you can also provide individual file with
+space separated for multiple of them.</p>
+<h2 id="example">Example</h2>
+<p>pyriandx create my_case.json path/to/SBJ00123/
+pyriandx create my_case.json file1.vcf.gz file2.vcf.gz file3.cnv</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Create(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx create help
+    pyriandx create [options] &lt;json-file&gt; [FILES...]
+
+Description:
+    Accession a new case from given input JSON file. Optionally,
+    FILES... can be a directory that contains list of files that
+    stage to upload. Or, you can also provide individual file with
+    space separated for multiple of them.
+
+Example:
+    pyriandx create my_case.json path/to/SBJ00123/
+    pyriandx create my_case.json file1.vcf.gz file2.vcf.gz file3.cnv
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Create arguments:\n {args}&#34;)
+        assert args[&#39;create&#39;] is True, _die(&#34;Command mismatch: Create&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.input_file = args[&#39;&lt;json-file&gt;&#39;]
+        self.resources = args[&#39;FILES&#39;]
+
+        assert str(self.input_file).endswith(&#39;.json&#39;), _halt(f&#34;Case input file must be in JSON format&#34;, self.__doc__)
+        assert os.path.exists(self.input_file), _halt(f&#34;No such file: {self.input_file}&#34;, self.__doc__)
+
+        self.client: Client = _build(global_args)
+
+        logger.info(f&#34;Creating case from input file: {self.input_file}&#34;)
+        self.case_id = self.client.create_case(self.input_file)
+        logger.success(f&#34;Created case with ID: {self.case_id}&#34;)
+
+        if self.resources:
+            self.upload_case_files()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></li>
+</ul>
+</dd>
+<dt id="pyriandx.cli.Job"><code class="flex name class">
+<span>class <span class="ident">Job</span></span>
+<span>(</span><span>global_args, command_argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="usage">Usage</h2>
+<p>pyriandx job help
+pyriandx job [options] <case-id> <run-id></p>
+<h2 id="description">Description</h2>
+<p>Create informatics job for given Case ID and Run ID. At the moment,
+it uses internal <code>create_job.json</code> template to create analysis job.
+It returns Job ID. It will associate this informatics job with given
+case. The analysis informatics job will kick off right away for the
+given case and uploaded case files. Note that each invocation will
+create a new informatics job for given case. It also implies that
+you should create a case, a sequencer run and uploaded case files
+before running informatics analysis job.</p>
+<h2 id="example">Example</h2>
+<p>pyriandx job 69695 1</p>
+<blockquote>
+<p>19635
+pyriandx job 69695 1
+19636
+pyriandx case 69695 | jq
+pyriandx case 69695 | jq '.informaticsJobs[] | select(.id == "19635")'</p>
+</blockquote></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Job(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx job help
+    pyriandx job [options] &lt;case-id&gt; &lt;run-id&gt;
+
+Description:
+    Create informatics job for given Case ID and Run ID. At the moment,
+    it uses internal `create_job.json` template to create analysis job.
+    It returns Job ID. It will associate this informatics job with given
+    case. The analysis informatics job will kick off right away for the
+    given case and uploaded case files. Note that each invocation will
+    create a new informatics job for given case. It also implies that
+    you should create a case, a sequencer run and uploaded case files
+    before running informatics analysis job.
+
+Example:
+    pyriandx job 69695 1
+    &gt; 19635
+    pyriandx job 69695 1
+    &gt; 19636
+    pyriandx case 69695 | jq
+    pyriandx case 69695 | jq &#39;.informaticsJobs[] | select(.id == &#34;19635&#34;)&#39;
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Job arguments:\n {args}&#34;)
+        assert args[&#39;job&#39;] is True, _die(&#34;Command mismatch: Job&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+        self.run_id = args[&#39;&lt;run-id&gt;&#39;]
+
+        case = self.get_case()
+
+        if &#39;caseFiles&#39; not in case:
+            logger.warning(f&#34;No case files found in your accessioned case. Very likely that informatics job may fail!&#34;)
+
+        assert &#39;sequencerRuns&#39; in case, _halt(f&#34;No sequencer run found in case {self.case_id}&#34;, self.__doc__)
+
+        found = False
+        for run in case[&#39;sequencerRuns&#39;]:
+            if run[&#39;runId&#39;] == self.run_id:
+                found = True
+                continue
+        assert found is True, _halt(f&#34;Sequencer run ID {self.run_id} is not found in case {self.case_id}&#34;, self.__doc__)
+
+        if case:
+            logger.info(f&#34;Creating informatics job for case {self.case_id}&#34;)
+            self.job_id = self.client.create_job(case, self.run_id)
+            logger.success(f&#34;Created informatics job with ID: {self.job_id}&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></li>
+</ul>
+</dd>
+<dt id="pyriandx.cli.List"><code class="flex name class">
+<span>class <span class="ident">List</span></span>
+<span>(</span><span>global_args, command_argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="usage">Usage</h2>
+<p>pyriandx list help
+pyriandx list [options] [<filters>&hellip;]</p>
+<h2 id="description">Description</h2>
+<p>List all cases by from PierianDx CGW. It returns in JSON format.
+You can further process it e.g. pretty print by pipe through with
+program such as jq. Optionally you can provide filters to limit
+the return list.</p>
+<p>Allow filters:
+id
+Case ID
+accessionNumber
+Accession Number
+panel
+The name of the case's panel
+dateCreatedStart
+Inclusive start range for the date created
+dateCreatedEnd
+Exclusive end range for the date created
+dateSignedOutStart
+Inclusive start range for the date signed out
+dateSignedOutEnd
+Exclusive end range for the date signed out</p>
+<h2 id="example">Example</h2>
+<p>pyriandx list
+pyriandx list | jq
+pyriandx list id=1234
+pyriandx list accessionNumber=SBJ000123
+pyriandx list dateSignedOutStart=2020-04-01</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class List(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx list help
+    pyriandx list [options] [&lt;filters&gt;...]
+
+Description:
+    List all cases by from PierianDx CGW. It returns in JSON format.
+    You can further process it e.g. pretty print by pipe through with
+    program such as jq. Optionally you can provide filters to limit
+    the return list.
+
+Allow filters:
+    id                      Case ID
+    accessionNumber         Accession Number
+    panel                   The name of the case&#39;s panel
+    dateCreatedStart        Inclusive start range for the date created
+    dateCreatedEnd          Exclusive end range for the date created
+    dateSignedOutStart      Inclusive start range for the date signed out
+    dateSignedOutEnd        Exclusive end range for the date signed out
+
+Example:
+    pyriandx list
+    pyriandx list | jq
+    pyriandx list id=1234
+    pyriandx list accessionNumber=SBJ000123
+    pyriandx list dateSignedOutStart=2020-04-01
+    &#34;&#34;&#34;
+
+    _F = [&#39;id&#39;, &#39;accessionNumber&#39;, &#39;panel&#39;, &#39;dateCreatedStart&#39;,
+          &#39;dateCreatedEnd&#39;, &#39;dateSignedOutStart&#39;, &#39;dateSignedOutEnd&#39;]
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;List arguments:\n {args}&#34;)
+        assert args[&#39;list&#39;] is True, _die(&#34;Command mismatch: List&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.filters = args[&#39;&lt;filters&gt;&#39;]
+
+        logger.debug(f&#34;Filters: {self.filters}&#34;)
+
+        params = {}
+        for ftr in self.filters:
+            assert &#39;=&#39; in ftr, _halt(f&#34;Invalid filter supplied: {ftr}&#34;, self.__doc__)
+            fil = ftr.split(&#39;=&#39;)
+            assert fil[0] in self._F, _halt(f&#34;Invalid filter supplied: {ftr}&#34;, self.__doc__)
+            params.update({fil[0]: fil[1]})
+
+        self.cases = self.client.list_cases(filters=params)
+        print(json.dumps(self.cases))  # print here is intended i.e. pyriandx list | jq</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></li>
+</ul>
+</dd>
+<dt id="pyriandx.cli.Poll"><code class="flex name class">
+<span>class <span class="ident">Poll</span></span>
+<span>(</span><span>global_args, command_argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="usage">Usage</h2>
+<p>pyriandx poll help
+pyriandx poll [options] <case-id> <job-id></p>
+<h2 id="description">Description</h2>
+<p>Poll informatics job for given Case ID and Job ID. Maximum wait
+time for polling job status is 30 minutes. It will timeout after
+30 minutes. You can poll again. Alternatively, you can check the
+informatics job status in PierianDx CGW dashboard. Or, get a case
+and filter job ID on the return JSON using jq.</p>
+<p>CAVEAT: Polling job status through API is not perfected yet. Please
+do not rely on this feature for status check.</p>
+<h2 id="example">Example</h2>
+<p>pyriandx poll 69695 19635
+pyriandx poll 69695 19636
+pyriandx case 69695 | jq
+pyriandx case 69695 | jq '.informaticsJobs[] | select(.id == "19635")'
+pyriandx case 69695 | jq '.informaticsJobs[] | select(.id == "19635") | .status'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Poll(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx poll help
+    pyriandx poll [options] &lt;case-id&gt; &lt;job-id&gt;
+
+Description:
+    Poll informatics job for given Case ID and Job ID. Maximum wait
+    time for polling job status is 30 minutes. It will timeout after
+    30 minutes. You can poll again. Alternatively, you can check the
+    informatics job status in PierianDx CGW dashboard. Or, get a case
+    and filter job ID on the return JSON using jq.
+
+    CAVEAT: Polling job status through API is not perfected yet. Please
+            do not rely on this feature for status check.
+
+Example:
+    pyriandx poll 69695 19635
+    pyriandx poll 69695 19636
+    pyriandx case 69695 | jq
+    pyriandx case 69695 | jq &#39;.informaticsJobs[] | select(.id == &#34;19635&#34;)&#39;
+    pyriandx case 69695 | jq &#39;.informaticsJobs[] | select(.id == &#34;19635&#34;) | .status&#39;
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Poll arguments:\n {args}&#34;)
+        assert args[&#39;poll&#39;] is True, _die(&#34;Command mismatch: Poll&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+        self.job_id = args[&#39;&lt;job-id&gt;&#39;]
+
+        case = self.get_case()
+        self.accession_number = str(case[&#39;specimens&#39;][0][&#39;accessionNumber&#39;])
+        logger.info(f&#34;Accession Number: {self.accession_number}&#34;)
+
+        self.complete = False
+        self.__start_poll()
+
+    def __start_poll(self):
+        status = self.client.get_job_status(self.case_id, self.job_id)
+        logger.info(f&#34;Started polling job {self.job_id} status... (Ctrl+C to exit) &#34;)
+
+        count = 0
+        while status != &#34;complete&#34; and status != &#34;failed&#34; and count &lt; 60:  # wait 30 minutes max
+            logger.info(f&#34;Status is: {status}&#34;)
+            time.sleep(30)  # Check API every 30 seconds
+            status = self.client.get_job_status(self.case_id, self.job_id)
+            count = count + 1
+
+        if count == 60:
+            logger.info(&#34;Job polling has reached timeout 30 minutes&#34;)
+        elif status == &#34;complete&#34;:
+            logger.warning(f&#34;Informatics job {self.job_id} for case {self.case_id} with accession number &#34;
+                           f&#34;{self.accession_number} might have completed&#34;)
+            logger.warning(f&#34;You should check in CGW dashboard to make sure it has completed successfully&#34;)
+            logger.warning(f&#34;CLI API call does not able to differentiate `status` transition effectively at the moment&#34;)
+            self.complete = True
+        elif status == &#34;failed&#34;:
+            logger.critical(f&#34;Job did not complete, status was {status}&#34;)
+            logger.info(f&#34;Please send support request to support@pieriandx.com with the following info:&#34;)
+            logger.info(f&#34;Case ID: {self.case_id}&#34;)
+            logger.info(f&#34;Job ID: {self.job_id}&#34;)
+            logger.info(f&#34;Accession Number: {self.accession_number}&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></li>
+</ul>
+</dd>
+<dt id="pyriandx.cli.Report"><code class="flex name class">
+<span>class <span class="ident">Report</span></span>
+<span>(</span><span>global_args, command_argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="usage">Usage</h2>
+<p>pyriandx report help
+pyriandx report [options] <case-id></p>
+<h2 id="description">Description</h2>
+<p>Get a report for given Case ID. It will download report in
+PDF format and save it into ./output folder.</p>
+<p>CAVEAT: Download report through API is not perfected yet.
+Please do not rely on this feature.</p>
+<h2 id="example">Example</h2>
+<p>pyriandx report 69695</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Report(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx report help
+    pyriandx report [options] &lt;case-id&gt;
+
+Description:
+    Get a report for given Case ID. It will download report in
+    PDF format and save it into ./output folder.
+
+    CAVEAT: Download report through API is not perfected yet.
+            Please do not rely on this feature.
+
+Example:
+    pyriandx report 69695
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Report arguments:\n {args}&#34;)
+        assert args[&#39;report&#39;] is True, _die(&#34;Command mismatch: Report&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+
+        logger.info(f&#34;Finding report IDs for case: {str(self.case_id)}&#34;)
+        case_ = self.get_case()
+
+        if &#39;reports&#39; not in case_:
+            logger.info(f&#34;No reports available for case {self.case_id}. Try again later.&#34;)
+        else:
+            logger.info(f&#34;Downloading report for case {self.case_id}&#34;)
+            self.client.get_report(case_, &#34;output&#34;)
+            logger.success(&#34;Report download complete. Check in ./output folder&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></li>
+</ul>
+</dd>
+<dt id="pyriandx.cli.Run"><code class="flex name class">
+<span>class <span class="ident">Run</span></span>
+<span>(</span><span>global_args, command_argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="usage">Usage</h2>
+<p>pyriandx run help
+pyriandx run [options] <case-id></p>
+<h2 id="description">Description</h2>
+<p>Create sequencer run for given Case ID. Note that each invocation
+will create a sequencer run for given case. At the moment, it uses
+internal <code>create_sequencer_run.json</code> template to create a sequencer
+run. It returns Run ID. It will associate this Run ID with accession
+number of given case. You typically need at least 1 sequencer run
+after case has accessioned.</p>
+<h2 id="example">Example</h2>
+<p>pyriandx run 69695</p>
+<blockquote>
+<p>1
+pyriandx run 69695
+2
+pyriandx case 69695 | jq
+pyriandx case 69695 | jq '.sequencerRuns[] | select(.runId == "1")'</p>
+</blockquote></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Run(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx run help
+    pyriandx run [options] &lt;case-id&gt;
+
+Description:
+    Create sequencer run for given Case ID. Note that each invocation
+    will create a sequencer run for given case. At the moment, it uses
+    internal `create_sequencer_run.json` template to create a sequencer
+    run. It returns Run ID. It will associate this Run ID with accession
+    number of given case. You typically need at least 1 sequencer run
+    after case has accessioned.
+
+Example:
+    pyriandx run 69695
+    &gt; 1
+    pyriandx run 69695
+    &gt; 2
+    pyriandx case 69695 | jq
+    pyriandx case 69695 | jq &#39;.sequencerRuns[] | select(.runId == &#34;1&#34;)&#39;
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Run arguments:\n {args}&#34;)
+        assert args[&#39;run&#39;] is True, _die(&#34;Command mismatch: Run&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.client: Client = _build(global_args)
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+
+        case = self.get_case()
+
+        if case:
+            self.accession_number = str(case[&#39;specimens&#39;][0][&#39;accessionNumber&#39;])
+            next_run_id = 1  # start from 1
+
+            # check existing sequence run
+            if &#39;sequencerRuns&#39; in case:
+                logger.info(f&#34;Case ID {self.case_id} has existing sequencer runs:&#34;)
+                run_ids = []
+                for run in case[&#39;sequencerRuns&#39;]:
+                    rid = run[&#39;runId&#39;]
+                    logger.info(f&#34;\tRun ID: {rid}, Date Created: {run[&#39;dateCreated&#39;]}&#34;)
+                    if str(rid).isnumeric():  # ignore if not numeric
+                        run_ids.append(rid)
+                if len(run_ids) &gt; 0:
+                    next_run_id = int(sorted(run_ids, reverse=True)[0]) + 1  # increase serial
+
+            logger.info(f&#34;Creating sequencer run for case {self.case_id}&#34;)
+            id_ = self.client.create_sequencer_run(self.accession_number, next_run_id)
+            self.run_id = next_run_id
+            logger.success(f&#34;Created sequencer run with ID: {self.run_id}&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></li>
+</ul>
+</dd>
+<dt id="pyriandx.cli.Upload"><code class="flex name class">
+<span>class <span class="ident">Upload</span></span>
+<span>(</span><span>global_args, command_argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="usage">Usage</h2>
+<p>pyriandx upload help
+pyriandx upload [options] <case-id> FILES&hellip;</p>
+<h2 id="description">Description</h2>
+<p>FILES&hellip; can be a directory that contains list of files that
+stage to upload. Or, you can also provide individual file with
+space separated for multiple of them.</p>
+<h2 id="example">Example</h2>
+<p>pyriandx upload 69695 path/to/SBJ00123/
+pyriandx upload 69695 file1.vcf.gz file2.vcf.gz file3.cnv</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Upload(Command):
+    &#34;&#34;&#34;Usage:
+    pyriandx upload help
+    pyriandx upload [options] &lt;case-id&gt; FILES...
+
+Description:
+    FILES... can be a directory that contains list of files that
+    stage to upload. Or, you can also provide individual file with
+    space separated for multiple of them.
+
+Example:
+    pyriandx upload 69695 path/to/SBJ00123/
+    pyriandx upload 69695 file1.vcf.gz file2.vcf.gz file3.cnv
+    &#34;&#34;&#34;
+
+    def __init__(self, global_args, command_argv):
+        args: dict = docopt(self.__doc__, argv=command_argv)
+        logger.spam(f&#34;Create arguments:\n {args}&#34;)
+        assert args[&#39;upload&#39;] is True, _die(&#34;Command mismatch: Upload&#34;)
+
+        if args[&#39;help&#39;]:
+            _help(self.__doc__)
+
+        self.case_id = args[&#39;&lt;case-id&gt;&#39;]
+        self.resources = args[&#39;FILES&#39;]
+        self.client: Client = _build(global_args)
+
+        if self.get_case():
+            self.upload_case_files()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyriandx" href="index.html">pyriandx</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pyriandx.cli.main" href="#pyriandx.cli.main">main</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyriandx.cli.Case" href="#pyriandx.cli.Case">Case</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyriandx.cli.Command" href="#pyriandx.cli.Command">Command</a></code></h4>
+<ul class="">
+<li><code><a title="pyriandx.cli.Command.get_case" href="#pyriandx.cli.Command.get_case">get_case</a></code></li>
+<li><code><a title="pyriandx.cli.Command.upload_case_files" href="#pyriandx.cli.Command.upload_case_files">upload_case_files</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyriandx.cli.Create" href="#pyriandx.cli.Create">Create</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyriandx.cli.Job" href="#pyriandx.cli.Job">Job</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyriandx.cli.List" href="#pyriandx.cli.List">List</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyriandx.cli.Poll" href="#pyriandx.cli.Poll">Poll</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyriandx.cli.Report" href="#pyriandx.cli.Report">Report</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyriandx.cli.Run" href="#pyriandx.cli.Run">Run</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyriandx.cli.Upload" href="#pyriandx.cli.Upload">Upload</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

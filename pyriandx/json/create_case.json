@@ -5,13 +5,13 @@
     },
     "specimens": [
         {
-            "firstName": "ab",
-            "lastName": "cde",
-            "dateReceived": "2018-10-31T11:51:00-0400",
-            "datecollected": "2017-01-03T22:21:00-0500",
+            "firstName": "John",
+            "lastName": "Doe",
+            "dateReceived": "2020-04-15T20:50:00Z",
+            "datecollected": "2020-03-02T20:49:00Z",
             "name": "primarySpecimen",
-            "dateAccessioned": "2017-01-02T22:21:00-0500",
-            "dateOfBirth": "1991-03-07",
+            "dateAccessioned": "2020-04-22T20:50:00Z",
+            "dateOfBirth": "1960-03-07",
             "type": {
                 "code": "442524009",
                 "label": "a.m. specimen"
@@ -21,24 +21,24 @@
                 {
                     "medicalFacility": {
                         "hospitalNumber": "1",
-                        "facility": "PierianDx"
+                        "facility": "University of Melbourne Centre for Cancer Research"
                     },
-                    "mrn": "adf"
+                    "mrn": "123456"
                 }
             ]
         }
     ],
     "sampleType": "patientcare",
-    "panelName": "Melbourne_WGS_somatic",
+    "panelName": "Melbourne_WGS_Somatic_Textual",
     "canceled": false,
     "physicians": [
         {
-            "firstName": "sdfd",
-            "lastName": "sdfd"
+            "firstName": "Victor",
+            "lastName": "Lin"
         }
     ],
     "identified": true,
-    "dateCreated": "2018-11-16",
+    "dateCreated": "2020-04-22",
     "inheritancePattern": "none",
-    "indication": "fsdfsd"
+    "indication": "standard_indication"
 }

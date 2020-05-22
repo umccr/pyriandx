@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to pyriandx’s documentation! &#8212; pyriandx 0.2.0rc1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="USER GUIDE" href="user.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-pyriandx-s-documentation">
+<h1>Welcome to pyriandx’s documentation!<a class="headerlink" href="#welcome-to-pyriandx-s-documentation" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://github.com/umccr/pyriandx/actions"><img alt="PR Build Status Badge" src="https://github.com/umccr/pyriandx/workflows/Pull%20Request%20Build/badge.svg" /></a>
+</div>
+<div class="section" id="pyriandx">
+<h1>pyriandx<a class="headerlink" href="#pyriandx" title="Permalink to this headline">¶</a></h1>
+<p><cite>pyriandx</cite> is CLI client and Python SDK/Library for PierianDx Clinical Genomics Workspace (CGW) web services – <a class="reference external" href="https://umccr.github.io/pyriandx/">https://umccr.github.io/pyriandx/</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://umccr.github.io/pyriandx/coverage/">Test Coverage</a></p></li>
+<li><p><a class="reference external" href="https://umccr.github.io/pyriandx/pyriandx/">PyDoc</a></p></li>
+<li><p><a class="reference external" href="https://github.com/umccr/pyriandx">https://github.com/umccr/pyriandx</a></p></li>
+</ul>
+<div class="section" id="tl-dr">
+<h2>TL;DR<a class="headerlink" href="#tl-dr" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Install through <code class="docutils literal notranslate"><span class="pre">pip</span></code> like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyriandx</span>
+</pre></div>
+</div>
+</li>
+<li><p>Export <code class="docutils literal notranslate"><span class="pre">PDX_</span></code> environment variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PDX_USERNAME</span><span class="o">=&lt;</span><span class="n">YOUR_PierianDx_CGW_LOGIN_EMAIL</span><span class="o">&gt;</span>
+<span class="n">export</span> <span class="n">PDX_PASSWORD</span><span class="o">=&lt;</span><span class="n">YOUR_PierianDx_CGW_LOGIN_PASSWORD</span><span class="o">&gt;</span>
+<span class="n">export</span> <span class="n">PDX_INSTITUTION</span><span class="o">=&lt;</span><span class="n">ASK_YOUR_PierianDx_CGW_ACCOUNT_MANAGER</span><span class="o">&gt;</span>
+<span class="n">export</span> <span class="n">PDX_BASE_URL</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="o">.</span><span class="n">pieriandx</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cgw</span><span class="o">-</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">.</span><span class="mf">0.0</span>
+</pre></div>
+</div>
+</li>
+<li><p>Print CLI command help:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyriandx</span> <span class="n">version</span>
+<span class="n">pyriandx</span> <span class="n">help</span>
+<span class="n">pyriandx</span> <span class="n">case</span> <span class="n">help</span>
+<span class="n">pyriandx</span> <span class="nb">list</span> <span class="n">help</span>
+<span class="n">pyriandx</span> <span class="n">create</span> <span class="n">help</span>
+<span class="n">pyriandx</span> <span class="n">upload</span> <span class="n">help</span>
+<span class="n">pyriandx</span> <span class="n">run</span> <span class="n">help</span>
+<span class="n">pyriandx</span> <span class="n">job</span> <span class="n">help</span>
+<span class="n">pyriandx</span> <span class="n">poll</span> <span class="n">help</span>
+<span class="n">pyriandx</span> <span class="n">report</span> <span class="n">help</span>
+</pre></div>
+</div>
+</li>
+<li><p>More examples/tutorials available at <a class="reference external" href="https://umccr.github.io/pyriandx/user.html">User Guide</a></p></li>
+</ul>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>MIT License and DISCLAIMER</p>
+<a class="reference external image-reference" href="https://opensource.org/licenses/MIT"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user.html">USER GUIDE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user.html#prerequisite">Prerequisite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#command-concept">Command Concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#printing-help">Printing Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#getting-a-case">Getting a Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#listing-all-cases">Listing all Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#accession-a-new-case">Accession a New Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#uploading-case-files">Uploading Case Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#sequencer-run">Sequencer Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#informatics-job">Informatics Job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#polling-job-status">Polling Job Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#download-analysis-report">Download Analysis Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#case-assignment">Case Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#issues">Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">DEVELOPER GUIDE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#project-setup">Project Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#running-test-suite">Running Test Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#clone-note">Clone Note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#workflow-note">Workflow Note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#feature-developer">Feature Developer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer.html#release-maintainer">Release Maintainer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">CHANGE LOG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.2.0</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">pyriandx</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user.html">USER GUIDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">DEVELOPER GUIDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">CHANGE LOG</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="user.html" title="next chapter">USER GUIDE</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, UMCCR and Contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

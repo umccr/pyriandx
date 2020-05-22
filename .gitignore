@@ -82,6 +82,10 @@ celerybeat-schedule
 .venv/
 venv/
 ENV/
+py35/
+py36/
+py37/
+py38/
 
 # Spyder project settings
 .spyderproject
@@ -90,3 +94,6 @@ ENV/
 .ropeproject
 
 *.pyc
+.DS_Store
+output/
+
