@@ -1,11 +1,5 @@
 name: Pull Request Build
 
-env:
-  PDX_USERNAME: mock
-  PDX_PASSWORD: mock
-  PDX_INSTITUTION: mock
-  PDX_BASE_URL: mock
-
 on:
   push:
     branches:
@@ -41,5 +35,10 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
+      env:
+        PDX_USERNAME: mock
+        PDX_PASSWORD: mock
+        PDX_INSTITUTION: mock
+        PDX_BASE_URL: mock
       run: |
         pytest
