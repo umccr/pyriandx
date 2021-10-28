@@ -18,7 +18,7 @@ from pyriandx import __version__
 # -- Project information -----------------------------------------------------
 
 project = 'pyriandx'
-copyright = '2020, UMCCR and Contributors'
+copyright = 'UMCCR and Contributors'
 author = 'UMCCR and Contributors'
 
 # The full version, including alpha/beta/rc tags

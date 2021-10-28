@@ -19,7 +19,7 @@ Command:
 (See 'pyriandx <command> help' for more information on a specific command)
 
 Options:
-    -b, --base_url=base_url         Base URL. [default: https://app.uat.pieriandx.com/cgw-api/v2.0.0].
+    -b, --base_url=base_url         Base URL.
     -u, --username=username         Required if PDX_USERNAME does not exist. Usually email address.
     -p, --password=password         Required if PDX_PASSWORD does not exist.
     -i, --institution=institution   Required if PDX_INSTITUTION does not exist.

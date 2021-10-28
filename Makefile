@@ -1,6 +1,9 @@
 help:
 	@echo 'make doc'
 
+install:
+	@pip install '.[test,dev]'
+
 doc:
 	@(cd sphinx && make github)
 	@pdoc --force --html pyriandx -o docs/
