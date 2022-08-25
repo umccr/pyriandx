@@ -18,13 +18,16 @@ __all__ = ['Client']
 
 class Client:
 
-    def __init__(self, email, key, institution, base_url):
+    def __init__(self, email, key, institution, base_url, key_is_auth_token=False):
         self.baseURL = base_url
         self.headers = {
             'X-Auth-Email': email,
-            'X-Auth-Key': key,
             'X-Auth-Institution': institution
         }
+        if key_is_auth_token:
+            self.headers['X-Auth-Token'] = key
+        else:
+            self.headers['X-Auth-Key'] = key
         # this is required to import static data from the module
         self.data_path = pkg_resources.resource_filename('pyriandx', 'json/')
 
