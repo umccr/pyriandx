@@ -4,7 +4,7 @@ import os
 
 import requests
 from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
+from urllib3.util.retry import Retry
 
 
 def retry_session(headers, retries=4, backoff_factor=1, status_forcelist=(500, 502, 504), session=None, upload=False):

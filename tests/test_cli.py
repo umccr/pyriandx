@@ -9,10 +9,10 @@ from pyriandx import cli
 class CLIUnitTests(TestCase):
 
     def setUp(self) -> None:
-        os.environ['PDX_USERNAME'] = "mock"
-        os.environ['PDX_PASSWORD'] = "mock"
-        os.environ['PDX_INSTITUTION'] = "mock"
-        os.environ['PDX_BASE_URL'] = "mock"
+        os.environ['PDX_USERNAME'] = ""
+        os.environ['PDX_PASSWORD'] = ""
+        os.environ['PDX_INSTITUTION'] = ""
+        os.environ['PDX_BASE_URL'] = ""
 
     def tearDown(self) -> None:
         unstub()

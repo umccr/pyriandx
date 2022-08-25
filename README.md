@@ -1,6 +1,10 @@
 # pyriandx
 
 ![Pull Request Build Status](https://github.com/umccr/pyriandx/workflows/Pull%20Request%20Build/badge.svg)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/pyriandx?style=flat)](https://pypistats.org/packages/pyriandx) 
+[![PyPI](https://img.shields.io/pypi/v/pyriandx?style=flat)](https://pypi.org/project/pyriandx)
+[![PyPI - License](https://img.shields.io/pypi/l/pyriandx?style=flat)](https://opensource.org/licenses/MIT)
+
 
 `pyriandx` is CLI client and Python SDK/Library for PierianDx Clinical Genomics Workspace (CGW) web services -- https://umccr.github.io/pyriandx/
 

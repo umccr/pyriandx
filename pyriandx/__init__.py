@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__version__ = VERSION = '0.2.0'
+__version__ = VERSION = '0.3.0rc1'
 
 import logging
 
