@@ -40,20 +40,22 @@ class Client:
         response = self._post_api("/case", data=request_data).json()
         return response['id']
 
-    def create_sequencer_run(self, accession_number, run_id):
+    def create_sequencer_run(self, accession_number, run_id, request_data=None):
         """Creates sequencer run with given accession number"""
-        with open(self.data_path + 'create_sequencer_run.json', 'r') as f:
-            request_data = json.load(f)
+        if request_data is None:
+            with open(self.data_path + 'create_sequencer_run.json', 'r') as f:
+                request_data = json.load(f)
         request_data['runId'] = run_id
         request_data['specimens'][0]['accessionNumber'] = accession_number
         logger.debug(f"Creating sequencer run with data: {request_data}")
         response = self._post_api("/sequencerRun", data=request_data).json()
         return response['id']
 
-    def create_job(self, case, run_id):
+    def create_job(self, case, run_id, request_data=None):
         """Creates job with given case and sequence run id"""
-        with open(self.data_path + 'create_job.json', 'r') as f:
-            request_data: dict = json.load(f)
+        if request_data is None:
+            with open(self.data_path + 'create_job.json', 'r') as f:
+                request_data: dict = json.load(f)
         accession_number = str(case['specimens'][0]['accessionNumber'])
         request_data['input'][0]['accessionNumber'] = str(accession_number)
         request_data['input'][0]['sequencerRunInfos'][0]['runId'] = str(run_id)
@@ -129,6 +131,12 @@ class Client:
         """List cases, optionally apply query filters if pass-in"""
         return self._get_api(f"/case", params=filters)
 
+    def get(self, endpoint, params):
+        """Expose GET API to caller/client
+        Retain _get_api() for backward compatible
+        """
+        return self._get_api(endpoint=endpoint, params=params)
+
     def _get_api(self, endpoint, params=None):
         """Internal function to create get requests to the API"""
         url = self.baseURL + endpoint
@@ -149,6 +157,12 @@ class Client:
         finally:
             t1 = time.time()
             logger.debug(f"Call took {t1 - t0} seconds")
+
+    def post(self, endpoint, data=None, files=None):
+        """Expose POST API to caller/client
+        Retain _post_api() for backward compatible
+        """
+        return self._post_api(endpoint, data=data, files=files)
 
     def _post_api(self, endpoint, data=None, files=None):
         """Internal function to create post requests to the API"""
