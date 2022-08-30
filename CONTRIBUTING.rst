@@ -3,7 +3,7 @@ Project Setup
 - Create Python virtual environment using your favourite ``venv`` tool or ``conda``
 - Setup project like so::
 
-    pip install '.[test,dev]' -e .
+    pip install ".[dev,test]" .
 
 - Recommend to use PyCharm IDE
 - 4 spaces, no tab for indentation
