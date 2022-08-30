@@ -1,17 +1,19 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>CHANGE LOG &#8212; pyriandx 0.2.0rc1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>CHANGE LOG &#8212; pyriandx 0.3.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="DEVELOPER GUIDE" href="developer.html" />
@@ -31,10 +33,23 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="change-log">
-<h1>CHANGE LOG<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>0.2.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+  <section id="change-log">
+<h1>CHANGE LOG<a class="headerlink" href="#change-log" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>0.3.0<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Release date: 2022-08-30</p></li>
+<li><p>Bug fix: <code class="docutils literal notranslate"><span class="pre">PDX_BASE_URL</span></code> env var</p></li>
+<li><p>Improved build and dev setup</p></li>
+<li><p>Added support <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.9</span> <span class="pre">|</span> <span class="pre">3.10</span></code></p></li>
+<li><p>Added CGW API JWT token support</p></li>
+<li><p>Added support to allow <code class="docutils literal notranslate"><span class="pre">request_data</span></code> parameter overload</p></li>
+<li><p>Added support <code class="docutils literal notranslate"><span class="pre">Client</span></code> on <code class="docutils literal notranslate"><span class="pre">get()</span></code> and <code class="docutils literal notranslate"><span class="pre">post()</span></code> behaviours</p></li>
+<li><p>See <a class="reference external" href="https://github.com/umccr/pyriandx/milestone/1?closed=1">milestone 0.3.0 for all related PRs</a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.2.0<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Release date: 2020-05-22</p></li>
 <li><p>New overhaul CLI with command-driven interface implementation</p></li>
@@ -43,8 +58,8 @@
 <li><p>Major refactored code and improved coding style format</p></li>
 <li><p>Switched to GitHub action for CI</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -63,12 +78,13 @@
 
 
 <h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="user.html">USER GUIDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html">DEVELOPER GUIDE</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CHANGE LOG</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.2.0</a></li>
 </ul>
 </li>
 </ul>
@@ -85,12 +101,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -104,10 +120,10 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020, UMCCR and Contributors.
+      &copy;UMCCR and Contributors.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.1.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

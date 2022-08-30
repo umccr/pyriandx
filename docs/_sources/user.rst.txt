@@ -130,7 +130,7 @@ Accession a New Case
 
 
 .. _`CGW API User Guide` : https://tools.pieriandx.com/confluence/display/CGWP/API+User+Guide#APIUserGuide-AccessioningaCase
-.. _`pyriandx github repo`: https://github.com/umccr/pyriandx/blob/master/pyriandx/json/create_case.json
+.. _`pyriandx github repo`: https://github.com/umccr/pyriandx/blob/main/pyriandx/json/create_case.json
 
 
 Uploading Case Files
