@@ -1,15 +1,27 @@
 # -*- coding: utf-8 -*-
+
+# Standard imports
 import json
 import logging
 import ntpath
 import os
 import shutil
+import sys
 import time
-
-import pkg_resources
 import requests
 
+# Local imports
 from pyriandx.utils import retry_session
+
+# Use modern importlib.resources for Python 3.9+, fallback for older versions
+if sys.version_info >= (3, 9):
+    from importlib.resources import files as resource_files
+else:
+    try:
+        from importlib_resources import files as resource_files
+    except ImportError:
+        # Fallback for environments without importlib_resources
+        resource_files = None
 
 logger = logging.getLogger(__name__)
 
@@ -28,8 +40,13 @@ class Client:
             self.headers['X-Auth-Token'] = key
         else:
             self.headers['X-Auth-Key'] = key
-        # this is required to import static data from the module
-        self.data_path = pkg_resources.resource_filename('pyriandx', 'json/')
+        # Get path to JSON resource files
+        if resource_files is not None:
+            # Modern approach using importlib.resources
+            self.data_path = str(resource_files('pyriandx').joinpath('json')) + '/'
+        else:
+            # Fallback for Python < 3.9 without importlib_resources
+            self.data_path = os.path.join(os.path.dirname(__file__), 'json') + '/'
 
     def create_case(self, case_data_file):
         """Creates case with given case data file"""
