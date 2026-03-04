@@ -6,22 +6,12 @@ import logging
 import ntpath
 import os
 import shutil
-import sys
 import time
 import requests
 
 # Local imports
 from pyriandx.utils import retry_session
-
-# Use modern importlib.resources for Python 3.9+, fallback for older versions
-if sys.version_info >= (3, 9):
-    from importlib.resources import files as resource_files
-else:
-    try:
-        from importlib_resources import files as resource_files
-    except ImportError:
-        # Fallback for environments without importlib_resources
-        resource_files = None
+from importlib.resources import files as resource_files
 
 logger = logging.getLogger(__name__)
 
