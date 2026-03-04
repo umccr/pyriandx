@@ -25,7 +25,6 @@ dependencies = [
     "coloredlogs>=15.0, <16",
     "verboselogs>=1.7, <2",
     "colorama>=0.4.4, <1",
-    "importlib_resources>=5.0; python_version < '3.9'",
 ]
 
 [project.urls]
