@@ -5,13 +5,12 @@ import json
 import logging
 import ntpath
 import os
-import shutil
 import time
 import requests
+from importlib.resources import files as resource_files
 
 # Local imports
 from pyriandx.utils import retry_session
-from importlib.resources import files as resource_files
 
 logger = logging.getLogger(__name__)
 
@@ -30,13 +29,11 @@ class Client:
             self.headers['X-Auth-Token'] = key
         else:
             self.headers['X-Auth-Key'] = key
-        # Get path to JSON resource files
-        if resource_files is not None:
-            # Modern approach using importlib.resources
-            self.data_path = str(resource_files('pyriandx').joinpath('json')) + '/'
-        else:
-            # Fallback for Python < 3.9 without importlib_resources
-            self.data_path = os.path.join(os.path.dirname(__file__), 'json') + '/'
+        self.template_root = resource_files('pyriandx').joinpath('json')
+
+    def _load_json_template(self, template_name):
+        template = self.template_root.joinpath(template_name)
+        return json.loads(template.read_text(encoding='utf-8'))
 
     def create_case(self, case_data_file):
         """Creates case with given case data file"""
@@ -50,8 +47,7 @@ class Client:
     def create_sequencer_run(self, accession_number, run_id, request_data=None):
         """Creates sequencer run with given accession number"""
         if request_data is None:
-            with open(self.data_path + 'create_sequencer_run.json', 'r') as f:
-                request_data = json.load(f)
+            request_data = self._load_json_template('create_sequencer_run.json')
         request_data['runId'] = run_id
         request_data['specimens'][0]['accessionNumber'] = accession_number
         logger.debug(f"Creating sequencer run with data: {request_data}")
@@ -61,8 +57,7 @@ class Client:
     def create_job(self, case, run_id, request_data=None):
         """Creates job with given case and sequence run id"""
         if request_data is None:
-            with open(self.data_path + 'create_job.json', 'r') as f:
-                request_data: dict = json.load(f)
+            request_data = self._load_json_template('create_job.json')
         accession_number = str(case['specimens'][0]['accessionNumber'])
         request_data['input'][0]['accessionNumber'] = str(accession_number)
         request_data['input'][0]['sequencerRunInfos'][0]['runId'] = str(run_id)
@@ -104,8 +99,8 @@ class Client:
         If report_index is None, downloads all reports.
         If output_dir is None, downloads to working directory.
         """
-        for r in case['reports']:
-            report_id = r['id']
+        for report in case['reports']:
+            report_id = report['id']
             local_filename = f"case-{str(case['id'])}_report-{report_id}.pdf.gz"
             endpoint = f"/case/{str(case['id'])}/reports/{report_id}?format=pdf"
             url = self.baseURL + endpoint
@@ -115,12 +110,14 @@ class Client:
                 local_filename = output_dir + "/" + local_filename
             logger.info(f"Found report with ID {report_id}. Downloading as {local_filename} from {url}")
 
-            r = requests.get(url, stream=True, headers=self.headers)
-            if r.ok:
+            response = requests.get(url, stream=True, headers=self.headers)
+            if response.ok:
                 with open(local_filename, 'wb') as f:
-                    shutil.copyfileobj(r.raw, f)
+                    for chunk in response.iter_content(chunk_size=8192):
+                        if chunk:
+                            f.write(chunk)
             else:
-                logger.critical(f"Issue downloading file from {endpoint}. {r.status_code} ::: {r.text}")
+                logger.critical(f"Issue downloading file from {endpoint}. {response.status_code} ::: {response.text}")
 
     def upload_file(self, filename, case_id):
         """Upload file to given accession number"""
