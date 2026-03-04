@@ -35,7 +35,7 @@ Homepage = "https://github.com/umccr/pyriandx"
 [project.optional-dependencies]
 dev = [
     "pipdeptree>=2.0, <3",
-    "sphinx>=9, <10",
+    "sphinx>=8, <10",
     "twine>=3.4, <4",
     "setuptools>=60.0",
     "wheel>=0.36, <1",
