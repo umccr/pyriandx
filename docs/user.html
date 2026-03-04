@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>USER GUIDE &#8212; pyriandx 0.3.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
+    <title>USER GUIDE &#8212; pyriandx 0.4.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=6c02275b"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="DEVELOPER GUIDE" href="developer.html" />
@@ -21,8 +18,9 @@
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -35,25 +33,25 @@
           <div class="body" role="main">
             
   <section id="user-guide">
-<h1>USER GUIDE<a class="headerlink" href="#user-guide" title="Permalink to this heading">¶</a></h1>
+<h1>USER GUIDE<a class="headerlink" href="#user-guide" title="Link to this heading">¶</a></h1>
 <section id="prerequisite">
-<h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this heading">¶</a></h2>
+<h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>First and foremost, you will need to setup credential for <a class="reference external" href="https://tools.pieriandx.com/confluence/display/CGWP/API+User+Guide#APIUserGuide-AccessingtheAPI">Accessing the API</a>.</p></li>
 <li><p>There are two options available: pass-in options flags or setup <code class="docutils literal notranslate"><span class="pre">PDX_</span></code> environment variables. Latter is preferred as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PDX_USERNAME</span><span class="o">=</span>&lt;YOUR_PierianDx_CGW_LOGIN_EMAIL&gt;
-<span class="nb">export</span> <span class="nv">PDX_PASSWORD</span><span class="o">=</span>&lt;YOUR_PierianDx_CGW_LOGIN_PASSWORD&gt;
-<span class="nb">export</span> <span class="nv">PDX_INSTITUTION</span><span class="o">=</span>&lt;ASK_YOUR_PierianDx_CGW_ACCOUNT_MANAGER&gt;
-<span class="nb">export</span> <span class="nv">PDX_BASE_URL</span><span class="o">=</span>https://app.pieriandx.com/cgw-api/v2.0.0
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PDX_USERNAME</span><span class="o">=</span>&lt;YOUR_PierianDx_CGW_LOGIN_EMAIL&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">PDX_PASSWORD</span><span class="o">=</span>&lt;YOUR_PierianDx_CGW_LOGIN_PASSWORD&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">PDX_INSTITUTION</span><span class="o">=</span>&lt;ASK_YOUR_PierianDx_CGW_ACCOUNT_MANAGER&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">PDX_BASE_URL</span><span class="o">=</span>https://app.pieriandx.com/cgw-api/v2.0.0
 </pre></div>
 </div>
 </li>
 <li><p>Otherwise, you can always pass-in options flags as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx &lt;command&gt; <span class="se">\</span>
-    -b https://app.pieriandx.com/cgw-api/v2.0.0 <span class="se">\</span>
-    -u me@my_org.org <span class="se">\</span>
-    -p my_password <span class="se">\</span>
-    -i my_institution
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-b<span class="w"> </span>https://app.pieriandx.com/cgw-api/v2.0.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-u<span class="w"> </span>me@my_org.org<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-p<span class="w"> </span>my_password<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-i<span class="w"> </span>my_institution
 </pre></div>
 </div>
 </li>
@@ -62,153 +60,153 @@
 </ul>
 </section>
 <section id="command-concept">
-<h2>Command Concept<a class="headerlink" href="#command-concept" title="Permalink to this heading">¶</a></h2>
+<h2>Command Concept<a class="headerlink" href="#command-concept" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>CLI is designed to be driven by <strong>command</strong> concept.</p></li>
 <li><p>Therefore, its command pattern usage is as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx &lt;command&gt; <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>&lt;args&gt;...<span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>&lt;args&gt;...<span class="o">]</span>
 </pre></div>
 </div>
 </li>
 <li><p>Short description about available commands are as follow:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">help</span>        Print <span class="nb">help</span> and <span class="nb">exit</span>
-version     Print version and <span class="nb">exit</span>
-<span class="k">case</span>        Get a <span class="k">case</span> from Case API
-list        List cases from Case API, optionally apply filters to limit results
-create      Accession a new <span class="k">case</span> from given input JSON file
-upload      Upload <span class="k">case</span> files <span class="k">for</span> given Case ID
-run         Create sequencer run <span class="k">for</span> given Case ID
-job         Create informatics job <span class="k">for</span> given Case ID and Run ID
-poll        Poll informatics job status <span class="k">for</span> given Case ID and Job ID
-report      Get a report <span class="k">for</span> given Case ID
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">help</span><span class="w">        </span>Print<span class="w"> </span><span class="nb">help</span><span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+version<span class="w">     </span>Print<span class="w"> </span>version<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+<span class="k">case</span><span class="w">        </span>Get<span class="w"> </span>a<span class="w"> </span><span class="k">case</span><span class="w"> </span>from<span class="w"> </span>Case<span class="w"> </span>API
+list<span class="w">        </span>List<span class="w"> </span>cases<span class="w"> </span>from<span class="w"> </span>Case<span class="w"> </span>API,<span class="w"> </span>optionally<span class="w"> </span>apply<span class="w"> </span>filters<span class="w"> </span>to<span class="w"> </span>limit<span class="w"> </span>results
+create<span class="w">      </span>Accession<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span><span class="k">case</span><span class="w"> </span>from<span class="w"> </span>given<span class="w"> </span>input<span class="w"> </span>JSON<span class="w"> </span>file
+upload<span class="w">      </span>Upload<span class="w"> </span><span class="k">case</span><span class="w"> </span>files<span class="w"> </span><span class="k">for</span><span class="w"> </span>given<span class="w"> </span>Case<span class="w"> </span>ID
+run<span class="w">         </span>Create<span class="w"> </span>sequencer<span class="w"> </span>run<span class="w"> </span><span class="k">for</span><span class="w"> </span>given<span class="w"> </span>Case<span class="w"> </span>ID
+job<span class="w">         </span>Create<span class="w"> </span>informatics<span class="w"> </span>job<span class="w"> </span><span class="k">for</span><span class="w"> </span>given<span class="w"> </span>Case<span class="w"> </span>ID<span class="w"> </span>and<span class="w"> </span>Run<span class="w"> </span>ID
+poll<span class="w">        </span>Poll<span class="w"> </span>informatics<span class="w"> </span>job<span class="w"> </span>status<span class="w"> </span><span class="k">for</span><span class="w"> </span>given<span class="w"> </span>Case<span class="w"> </span>ID<span class="w"> </span>and<span class="w"> </span>Job<span class="w"> </span>ID
+report<span class="w">      </span>Get<span class="w"> </span>a<span class="w"> </span>report<span class="w"> </span><span class="k">for</span><span class="w"> </span>given<span class="w"> </span>Case<span class="w"> </span>ID
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="printing-help">
-<h2>Printing Help<a class="headerlink" href="#printing-help" title="Permalink to this heading">¶</a></h2>
+<h2>Printing Help<a class="headerlink" href="#printing-help" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>CLI has self-contained useful <code class="docutils literal notranslate"><span class="pre">help</span></code> sub-commands.</p></li>
 <li><p>To print CLI command help:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx <span class="nb">help</span>
-pyriandx <span class="k">case</span> <span class="nb">help</span>
-pyriandx list <span class="nb">help</span>
-pyriandx create <span class="nb">help</span>
-pyriandx upload <span class="nb">help</span>
-pyriandx run <span class="nb">help</span>
-pyriandx job <span class="nb">help</span>
-pyriandx poll <span class="nb">help</span>
-pyriandx report <span class="nb">help</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span><span class="nb">help</span>
+pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="nb">help</span>
+pyriandx<span class="w"> </span>list<span class="w"> </span><span class="nb">help</span>
+pyriandx<span class="w"> </span>create<span class="w"> </span><span class="nb">help</span>
+pyriandx<span class="w"> </span>upload<span class="w"> </span><span class="nb">help</span>
+pyriandx<span class="w"> </span>run<span class="w"> </span><span class="nb">help</span>
+pyriandx<span class="w"> </span>job<span class="w"> </span><span class="nb">help</span>
+pyriandx<span class="w"> </span>poll<span class="w"> </span><span class="nb">help</span>
+pyriandx<span class="w"> </span>report<span class="w"> </span><span class="nb">help</span>
 </pre></div>
 </div>
 </li>
 <li><p>Each command help contain description about usage and notes. For example:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pyriandx <span class="k">case</span> <span class="nb">help</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="nb">help</span>
 Usage:
-    pyriandx <span class="k">case</span> <span class="nb">help</span>
-    pyriandx <span class="k">case</span> <span class="o">[</span>options<span class="o">]</span> &lt;<span class="k">case</span>-id&gt;
+<span class="w">    </span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="nb">help</span>
+<span class="w">    </span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>&lt;<span class="k">case</span>-id&gt;
 
 Description:
-    Get a <span class="k">case</span> by given ID from PierianDx CGW. It returns <span class="k">in</span> JSON
-    format. You can further process it e.g. pretty print by pipe
-    through with program such as jq.
+<span class="w">    </span>Get<span class="w"> </span>a<span class="w"> </span><span class="k">case</span><span class="w"> </span>by<span class="w"> </span>given<span class="w"> </span>ID<span class="w"> </span>from<span class="w"> </span>PierianDx<span class="w"> </span>CGW.<span class="w"> </span>It<span class="w"> </span>returns<span class="w"> </span><span class="k">in</span><span class="w"> </span>JSON
+<span class="w">    </span>format.<span class="w"> </span>You<span class="w"> </span>can<span class="w"> </span>further<span class="w"> </span>process<span class="w"> </span>it<span class="w"> </span>e.g.<span class="w"> </span>pretty<span class="w"> </span>print<span class="w"> </span>by<span class="w"> </span>pipe
+<span class="w">    </span>through<span class="w"> </span>with<span class="w"> </span>program<span class="w"> </span>such<span class="w"> </span>as<span class="w"> </span>jq.
 
 Example:
-    pyriandx <span class="k">case</span> <span class="m">69695</span>
-    pyriandx <span class="k">case</span> <span class="m">69695</span> <span class="p">|</span> jq
+<span class="w">    </span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">69695</span>
+<span class="w">    </span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">69695</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="getting-a-case">
-<h2>Getting a Case<a class="headerlink" href="#getting-a-case" title="Permalink to this heading">¶</a></h2>
+<h2>Getting a Case<a class="headerlink" href="#getting-a-case" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>You can query existing case with <code class="docutils literal notranslate"><span class="pre">case</span></code> command by passing case ID as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx <span class="k">case</span> <span class="m">69695</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">69695</span>
 </pre></div>
 </div>
 </li>
 <li><p>You can redirect output to store in JSON format as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx <span class="k">case</span> <span class="m">69695</span> &gt; case_69695.json
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">69695</span><span class="w"> </span>&gt;<span class="w"> </span>case_69695.json
 </pre></div>
 </div>
 </li>
 <li><p>You can also use external program like <a class="reference external" href="https://stedolan.github.io/jq/download/">jq</a> to pretty print JSON format as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx <span class="k">case</span> <span class="m">69695</span> <span class="p">|</span> jq
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">69695</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="listing-all-cases">
-<h2>Listing all Cases<a class="headerlink" href="#listing-all-cases" title="Permalink to this heading">¶</a></h2>
+<h2>Listing all Cases<a class="headerlink" href="#listing-all-cases" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>To query all available cases, use <code class="docutils literal notranslate"><span class="pre">list</span></code> command as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx list <span class="p">|</span> jq
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
 </pre></div>
 </div>
 </li>
 <li><p>Optionally, you can apply filters as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx list <span class="nv">accessionNumber</span><span class="o">=</span>SBJ000123
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>list<span class="w"> </span><span class="nv">accessionNumber</span><span class="o">=</span>SBJ000123
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="accession-a-new-case">
-<h2>Accession a New Case<a class="headerlink" href="#accession-a-new-case" title="Permalink to this heading">¶</a></h2>
+<h2>Accession a New Case<a class="headerlink" href="#accession-a-new-case" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>To accession a new case, first, you must prepare case input file in JSON format.</p></li>
 <li><p>You can refer to example provided in <a class="reference external" href="https://tools.pieriandx.com/confluence/display/CGWP/API+User+Guide#APIUserGuide-AccessioningaCase">CGW API User Guide</a> or <a class="reference external" href="https://github.com/umccr/pyriandx/blob/main/pyriandx/json/create_case.json">pyriandx github repo</a> as JSON input template to work out for your case.</p></li>
 <li><p>Once you have case input file ready, you can create a case as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx create my_case.json
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>create<span class="w"> </span>my_case.json
 </pre></div>
 </div>
 </li>
 <li><p>Optionally, you can provide case files (typically VCF files) as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx create my_case.json file1.vcf.gz file2.vcf.gz file3.purple.cnv
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>create<span class="w"> </span>my_case.json<span class="w"> </span>file1.vcf.gz<span class="w"> </span>file2.vcf.gz<span class="w"> </span>file3.purple.cnv
 </pre></div>
 </div>
 </li>
 <li><p>You can also prepare a folder and stage all your case files for upload. In this case, instead of providing individual case files, you can provide this stage directory as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx create my_case.json path/to/files/for/upload/
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>create<span class="w"> </span>my_case.json<span class="w"> </span>path/to/files/for/upload/
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="uploading-case-files">
-<h2>Uploading Case Files<a class="headerlink" href="#uploading-case-files" title="Permalink to this heading">¶</a></h2>
+<h2>Uploading Case Files<a class="headerlink" href="#uploading-case-files" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>Sometime, you might want to upload additional case files or, you might have just accessioned the case only.</p></li>
 <li><p>At any case, you can upload case files for given case.</p></li>
 <li><p>For example, to upload case files for case ID <code class="docutils literal notranslate"><span class="pre">69695</span></code> as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx upload <span class="m">69695</span> file1.vcf.gz file2.vcf.gz file3.cnv
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>upload<span class="w"> </span><span class="m">69695</span><span class="w"> </span>file1.vcf.gz<span class="w"> </span>file2.vcf.gz<span class="w"> </span>file3.cnv
 </pre></div>
 </div>
 </li>
 <li><p>Similarly, you can stage case files in a directory for upload. And provide this stage directory as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx upload <span class="m">69695</span> path/to/SBJ00123/
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>upload<span class="w"> </span><span class="m">69695</span><span class="w"> </span>path/to/SBJ00123/
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="sequencer-run">
-<h2>Sequencer Run<a class="headerlink" href="#sequencer-run" title="Permalink to this heading">¶</a></h2>
+<h2>Sequencer Run<a class="headerlink" href="#sequencer-run" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>After case has accessioned and uploaded case files, you should create sequencer run.</p></li>
 <li><p>For example, to create sequencer run for case ID <code class="docutils literal notranslate"><span class="pre">69695</span></code> as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx run <span class="m">69695</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>run<span class="w"> </span><span class="m">69695</span>
 </pre></div>
 </div>
 </li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">run</span></code> command return Run ID (<code class="docutils literal notranslate"><span class="pre">runId</span></code> field as in JSON form). This is serial sequence and, start from <code class="docutils literal notranslate"><span class="pre">1</span></code> and, increment by <code class="docutils literal notranslate"><span class="pre">1</span></code> on subsequence <code class="docutils literal notranslate"><span class="pre">run</span></code> command invocation.</p></li>
 <li><p>This will create a new sequencer run entry in <code class="docutils literal notranslate"><span class="pre">sequencerRuns</span></code> resource node (as in JSON form) of your case model.</p></li>
 <li><p>You can check existing sequencer run by getting a case and filter JSON as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx <span class="k">case</span> <span class="m">69695</span> <span class="p">|</span> jq <span class="s1">&#39;.sequencerRuns[]&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">69695</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.sequencerRuns[]&#39;</span>
 </pre></div>
 </div>
 </li>
@@ -216,12 +214,12 @@ Example:
 </ul>
 </section>
 <section id="informatics-job">
-<h2>Informatics Job<a class="headerlink" href="#informatics-job" title="Permalink to this heading">¶</a></h2>
+<h2>Informatics Job<a class="headerlink" href="#informatics-job" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>In order to create analysis informatics job, you will need accessioned case with at least one sequencer run prepared for it.</p></li>
 <li><p>You can check your case readiness for informatics job submission by running <code class="docutils literal notranslate"><span class="pre">case</span></code> command to observe the case model output in JSON format.</p></li>
 <li><p>Once your case is ready for run, you will need Case ID and Run ID to kick off informatics job as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx job <span class="m">69695</span> <span class="m">1</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>job<span class="w"> </span><span class="m">69695</span><span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </li>
@@ -229,24 +227,24 @@ Example:
 </ul>
 </section>
 <section id="polling-job-status">
-<h2>Polling Job Status<a class="headerlink" href="#polling-job-status" title="Permalink to this heading">¶</a></h2>
+<h2>Polling Job Status<a class="headerlink" href="#polling-job-status" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>Once informatics job has kicked off, it will take awhile for job to be completed.</p></li>
 <li><p>CLI comes with <code class="docutils literal notranslate"><span class="pre">poll</span></code> command for monitoring job status for convenience.</p></li>
 <li><p>You will need Case ID and Job ID for <code class="docutils literal notranslate"><span class="pre">poll</span></code> command as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx poll <span class="m">69695</span> <span class="m">19635</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>poll<span class="w"> </span><span class="m">69695</span><span class="w"> </span><span class="m">19635</span>
 </pre></div>
 </div>
 </li>
 <li><p>Polling timeout at every 30 minutes. You can poll again.</p></li>
 <li><p>You can abort polling by <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> at any time.</p></li>
 <li><p>You can also (ad-hoc) get a case and filter Job ID on the return JSON using <code class="docutils literal notranslate"><span class="pre">jq</span></code> as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx <span class="k">case</span> <span class="m">69695</span> <span class="p">|</span> jq <span class="s1">&#39;.informaticsJobs[] | select(.id == &quot;19635&quot;)&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">69695</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.informaticsJobs[] | select(.id == &quot;19635&quot;)&#39;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Or, specifically on <code class="docutils literal notranslate"><span class="pre">status</span></code> field as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx <span class="k">case</span> <span class="m">69695</span> <span class="p">|</span> jq <span class="s1">&#39;.informaticsJobs[] | select(.id == &quot;19635&quot;) | .status&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">69695</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.informaticsJobs[] | select(.id == &quot;19635&quot;) | .status&#39;</span>
 </pre></div>
 </div>
 </li>
@@ -258,10 +256,10 @@ Example:
 </ul>
 </section>
 <section id="download-analysis-report">
-<h2>Download Analysis Report<a class="headerlink" href="#download-analysis-report" title="Permalink to this heading">¶</a></h2>
+<h2>Download Analysis Report<a class="headerlink" href="#download-analysis-report" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>When case report is ready, you can download it as follows:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx report <span class="m">69695</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pyriandx<span class="w"> </span>report<span class="w"> </span><span class="m">69695</span>
 </pre></div>
 </div>
 </li>
@@ -273,7 +271,7 @@ Example:
 </ul>
 </section>
 <section id="case-assignment">
-<h2>Case Assignment<a class="headerlink" href="#case-assignment" title="Permalink to this heading">¶</a></h2>
+<h2>Case Assignment<a class="headerlink" href="#case-assignment" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>CLI is not yet supported case assignment to personnel at the moment.</p></li>
 <li><p>You can follow up assign the case to curator/personnel through PierianDx CGW dashboard.</p>
@@ -284,7 +282,7 @@ Example:
 </ul>
 </section>
 <section id="issues">
-<h2>Issues<a class="headerlink" href="#issues" title="Permalink to this heading">¶</a></h2>
+<h2>Issues<a class="headerlink" href="#issues" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Create or vote for feature/issue requests: <a class="reference external" href="https://github.com/umccr/pyriandx/issues">https://github.com/umccr/pyriandx/issues</a></p></li>
 </ul>
@@ -296,7 +294,7 @@ Example:
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="index.html">pyriandx</a></h1>
 
@@ -339,7 +337,7 @@ Example:
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -347,7 +345,7 @@ Example:
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -362,11 +360,11 @@ Example:
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;UMCCR and Contributors.
+      &#169;UMCCR and Contributors.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.1.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
       
       |
       <a href="_sources/user.rst.txt"
