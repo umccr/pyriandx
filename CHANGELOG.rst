@@ -1,6 +1,15 @@
 CHANGE LOG
 ==========
 
+0.4.0
+-----
+* Release date: 2026-03-05
+* Improved project setup to ``pyproject.toml``
+* Bumped urllib3 v2.0
+* Added support ``Python 3.10`` to ``Python 3.14``
+* Dropped support ``Python 3.9`` and lower
+* See `milestone 0.4.0 for all related PRs <https://github.com/umccr/pyriandx/milestone/2?closed=1>`_
+
 0.3.0
 -----
 * Release date: 2022-08-30
