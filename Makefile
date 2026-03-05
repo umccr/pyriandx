@@ -16,6 +16,7 @@ doc:
 	@pdoc --force --html pyriandx -o docs/
 	@py.test --cov-report html:docs/coverage --cov=pyriandx tests/
 	@rm -rf docs/.buildinfo
+	@rm -rf docs/.buildinfo.bak
 	@rm -rf docs/coverage/status.json
 
 test:

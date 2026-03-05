@@ -67,13 +67,11 @@ el.replaceWith(d);
             self.headers[&#39;X-Auth-Token&#39;] = key
         else:
             self.headers[&#39;X-Auth-Key&#39;] = key
-        # Get path to JSON resource files
-        if resource_files is not None:
-            # Modern approach using importlib.resources
-            self.data_path = str(resource_files(&#39;pyriandx&#39;).joinpath(&#39;json&#39;)) + &#39;/&#39;
-        else:
-            # Fallback for Python &lt; 3.9 without importlib_resources
-            self.data_path = os.path.join(os.path.dirname(__file__), &#39;json&#39;) + &#39;/&#39;
+        self.template_root = resource_files(&#39;pyriandx&#39;).joinpath(&#39;json&#39;)
+
+    def _load_json_template(self, template_name):
+        template = self.template_root.joinpath(template_name)
+        return json.loads(template.read_text(encoding=&#39;utf-8&#39;))
 
     def create_case(self, case_data_file):
         &#34;&#34;&#34;Creates case with given case data file&#34;&#34;&#34;
@@ -87,8 +85,7 @@ el.replaceWith(d);
     def create_sequencer_run(self, accession_number, run_id, request_data=None):
         &#34;&#34;&#34;Creates sequencer run with given accession number&#34;&#34;&#34;
         if request_data is None:
-            with open(self.data_path + &#39;create_sequencer_run.json&#39;, &#39;r&#39;) as f:
-                request_data = json.load(f)
+            request_data = self._load_json_template(&#39;create_sequencer_run.json&#39;)
         request_data[&#39;runId&#39;] = run_id
         request_data[&#39;specimens&#39;][0][&#39;accessionNumber&#39;] = accession_number
         logger.debug(f&#34;Creating sequencer run with data: {request_data}&#34;)
@@ -98,8 +95,7 @@ el.replaceWith(d);
     def create_job(self, case, run_id, request_data=None):
         &#34;&#34;&#34;Creates job with given case and sequence run id&#34;&#34;&#34;
         if request_data is None:
-            with open(self.data_path + &#39;create_job.json&#39;, &#39;r&#39;) as f:
-                request_data: dict = json.load(f)
+            request_data = self._load_json_template(&#39;create_job.json&#39;)
         accession_number = str(case[&#39;specimens&#39;][0][&#39;accessionNumber&#39;])
         request_data[&#39;input&#39;][0][&#39;accessionNumber&#39;] = str(accession_number)
         request_data[&#39;input&#39;][0][&#39;sequencerRunInfos&#39;][0][&#39;runId&#39;] = str(run_id)
@@ -141,8 +137,8 @@ el.replaceWith(d);
         If report_index is None, downloads all reports.
         If output_dir is None, downloads to working directory.
         &#34;&#34;&#34;
-        for r in case[&#39;reports&#39;]:
-            report_id = r[&#39;id&#39;]
+        for report in case[&#39;reports&#39;]:
+            report_id = report[&#39;id&#39;]
             local_filename = f&#34;case-{str(case[&#39;id&#39;])}_report-{report_id}.pdf.gz&#34;
             endpoint = f&#34;/case/{str(case[&#39;id&#39;])}/reports/{report_id}?format=pdf&#34;
             url = self.baseURL + endpoint
@@ -152,12 +148,14 @@ el.replaceWith(d);
                 local_filename = output_dir + &#34;/&#34; + local_filename
             logger.info(f&#34;Found report with ID {report_id}. Downloading as {local_filename} from {url}&#34;)
 
-            r = requests.get(url, stream=True, headers=self.headers)
-            if r.ok:
+            response = requests.get(url, stream=True, headers=self.headers)
+            if response.ok:
                 with open(local_filename, &#39;wb&#39;) as f:
-                    shutil.copyfileobj(r.raw, f)
+                    for chunk in response.iter_content(chunk_size=8192):
+                        if chunk:
+                            f.write(chunk)
             else:
-                logger.critical(f&#34;Issue downloading file from {endpoint}. {r.status_code} ::: {r.text}&#34;)
+                logger.critical(f&#34;Issue downloading file from {endpoint}. {response.status_code} ::: {response.text}&#34;)
 
     def upload_file(self, filename, case_id):
         &#34;&#34;&#34;Upload file to given accession number&#34;&#34;&#34;
@@ -273,8 +271,7 @@ el.replaceWith(d);
 <pre><code class="python">def create_job(self, case, run_id, request_data=None):
     &#34;&#34;&#34;Creates job with given case and sequence run id&#34;&#34;&#34;
     if request_data is None:
-        with open(self.data_path + &#39;create_job.json&#39;, &#39;r&#39;) as f:
-            request_data: dict = json.load(f)
+        request_data = self._load_json_template(&#39;create_job.json&#39;)
     accession_number = str(case[&#39;specimens&#39;][0][&#39;accessionNumber&#39;])
     request_data[&#39;input&#39;][0][&#39;accessionNumber&#39;] = str(accession_number)
     request_data[&#39;input&#39;][0][&#39;sequencerRunInfos&#39;][0][&#39;runId&#39;] = str(run_id)
@@ -314,8 +311,7 @@ el.replaceWith(d);
 <pre><code class="python">def create_sequencer_run(self, accession_number, run_id, request_data=None):
     &#34;&#34;&#34;Creates sequencer run with given accession number&#34;&#34;&#34;
     if request_data is None:
-        with open(self.data_path + &#39;create_sequencer_run.json&#39;, &#39;r&#39;) as f:
-            request_data = json.load(f)
+        request_data = self._load_json_template(&#39;create_sequencer_run.json&#39;)
     request_data[&#39;runId&#39;] = run_id
     request_data[&#39;specimens&#39;][0][&#39;accessionNumber&#39;] = accession_number
     logger.debug(f&#34;Creating sequencer run with data: {request_data}&#34;)
@@ -398,8 +394,8 @@ Retain _get_api() for backward compatible</p></div>
     If report_index is None, downloads all reports.
     If output_dir is None, downloads to working directory.
     &#34;&#34;&#34;
-    for r in case[&#39;reports&#39;]:
-        report_id = r[&#39;id&#39;]
+    for report in case[&#39;reports&#39;]:
+        report_id = report[&#39;id&#39;]
         local_filename = f&#34;case-{str(case[&#39;id&#39;])}_report-{report_id}.pdf.gz&#34;
         endpoint = f&#34;/case/{str(case[&#39;id&#39;])}/reports/{report_id}?format=pdf&#34;
         url = self.baseURL + endpoint
@@ -409,12 +405,14 @@ Retain _get_api() for backward compatible</p></div>
             local_filename = output_dir + &#34;/&#34; + local_filename
         logger.info(f&#34;Found report with ID {report_id}. Downloading as {local_filename} from {url}&#34;)
 
-        r = requests.get(url, stream=True, headers=self.headers)
-        if r.ok:
+        response = requests.get(url, stream=True, headers=self.headers)
+        if response.ok:
             with open(local_filename, &#39;wb&#39;) as f:
-                shutil.copyfileobj(r.raw, f)
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
         else:
-            logger.critical(f&#34;Issue downloading file from {endpoint}. {r.status_code} ::: {r.text}&#34;)</code></pre>
+            logger.critical(f&#34;Issue downloading file from {endpoint}. {response.status_code} ::: {response.text}&#34;)</code></pre>
 </details>
 <div class="desc"><p>Downloads report to output_dir.
 If report_index is None, downloads all reports.
