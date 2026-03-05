@@ -6,8 +6,10 @@ install:
 	@pre-commit install
 
 check:
-	@ggshield secret scan repo .
 	@pre-commit run --all-files
+
+scan:
+	@ggshield secret scan repo .
 
 doc:
 	@(cd sphinx && make github)
