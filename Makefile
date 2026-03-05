@@ -40,9 +40,9 @@ ver: dist/pyriandx-$(version).tar.gz
 	@echo $(version)
 
 testpypi: dist/pyriandx-$(version).tar.gz
-	@python3 -m twine upload --repository testpypi --sign dist/pyriandx-$(version).*
-	@python3 -m twine upload --repository testpypi --sign dist/pyriandx-$(version)-*
+	@python3 -m twine upload --repository testpypi dist/pyriandx-$(version).tar.gz
+	@python3 -m twine upload --repository testpypi dist/pyriandx-$(version)-*.whl
 
 pypi: dist/pyriandx-$(version).tar.gz
-	@python3 -m twine upload --sign dist/pyriandx-$(version).*
-	@python3 -m twine upload --sign dist/pyriandx-$(version)-*
+	@python3 -m twine upload dist/pyriandx-$(version).tar.gz
+	@python3 -m twine upload dist/pyriandx-$(version)-*.whl
